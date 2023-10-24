@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="cabecalho_rodapé.master.cs" Inherits="loja_online.cabecalho_rodapé" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+      <style>
+          .whatsapp-icon {
+              color: #FF0000; /* Vermelho */
+          }
+          .custom-link {
+              color: black; /* Define a cor do texto como preto */
+              text-decoration: none; /* Remove o sublinhado */
+              font-size: 1.2em; /* Define o tamanho da fonte (ajuste conforme necessário) */
+          }
+          #meuCarrossel {
+              width: 100%;
+              max-width: none;
+              height: 600px;
+          }
+         
+      </style>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="css/bootstrap.min.css" rel="stylesheet" />
+     <link href="css/all.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="bg-dark p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Ícones de redes sociais na esquerda -->
+                    <div class="d-flex">
+                        <a href="#" class="ms-2"><i class="fab fa-facebook fa-2x text-white"></i></a>
+                        <a href="#" class="ms-2"><i class="fab fa-twitter fa-2x text-white"></i></a>
+                    </div>
+
+                    <!-- Caixa de pesquisa centralizada -->
+                    <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
+                        <asp:TextBox ID="text" runat="server" CssClass="form-control" placeholder="Pesquisar produtos"></asp:TextBox>
+                        <div class="input-group-append">
+                            <asp:Button ID="btn_procurar" runat="server" Text="Pesquisar" CssClass="btn btn-danger" />
+                        </div>
+                    </div>
+
+                    <!-- Botão de Login/Minha Conta -->
+                    <a href="login.aspx" class="btn btn-link text-white text-decoration-none">
+                        <i class="fas fa-user fa-2x me-2 whatsapp-icon"></i>Login/Minha Conta
+                    </a>
+
+                    <!-- Ícone do WhatsApp e número de telefone -->
+                    <div class="d-flex align-items-center">
+                        <i class="fab fa-whatsapp fa-2x whatsapp-icon me-2"></i>
+                        <label class="mb-0 text-white">910000000</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray text-center py-3 h-105">
+    <a href="index.aspx" class="mx-3 custom-link">Opção 1</a>
+    <a href="pagina2.html" class="mx-3 custom-link">Opção 2</a>
+    <a href="pagina3.html" class="mx-3 custom-link">Opção 3</a>
+    <a href="pagina4.html" class="mx-3 custom-link">Opção 4</a>
+    <a href="pagina5.html" class="mx-3 custom-link"><b>0,00</b> <i class="fas fa-euro-sign"></i></a>
+    <a href="pagina6.html" class="mx-3 custom-link"><i class="fas fa-shopping-cart"></i></a>
+</div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+</body>
+</html>
