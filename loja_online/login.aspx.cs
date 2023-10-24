@@ -98,7 +98,7 @@ namespace loja_online
 
                 if (resposta == 1)
                 {
-                    Response.Redirect("backoffice.aspx");
+                    Response.Redirect("conta.aspx");
                 }
                 else if (resposta == 0)
                 {
@@ -138,7 +138,7 @@ namespace loja_online
 
                 if (resposta == 1)
                 {
-                    Response.Redirect("backoffice.aspx");
+                    Response.Redirect("conta.aspx");
                 }
                 else if (resposta == 0)
                 {
