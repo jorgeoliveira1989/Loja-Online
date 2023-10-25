@@ -11,7 +11,7 @@ namespace loja_online
 {
 
 
-    public partial class backoffice
+    public partial class backoffice2
     {
     }
 }

@@ -21,6 +21,8 @@ namespace loja_online
 
         protected void btn_entrar_Click(object sender, EventArgs e)
         {
+            Session["username"] = txt_user.Text;
+
             cargo = ddl_tipo.SelectedItem.ToString();
 
             if (cargo == "-------------")
