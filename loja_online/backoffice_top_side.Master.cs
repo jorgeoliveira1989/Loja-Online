@@ -11,11 +11,12 @@ namespace loja_online
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbl_user.Text = (string)Session["username"];
         }
 
         protected void btn_sair_Click(object sender, EventArgs e)
         {
+            
             Session.Clear();
             Session.Abandon();
             Response.Redirect("index.aspx");

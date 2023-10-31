@@ -11,25 +11,16 @@ namespace loja_online
 {
 
 
-    public partial class backoffice1
+    public partial class visualizar_admins
     {
 
         /// <summary>
-        /// ddl_tipoConta control.
+        /// rpt_verAdmins control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_tipoConta;
-
-        /// <summary>
-        /// rpt_verClientes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpt_verClientes;
+        protected global::System.Web.UI.WebControls.Repeater rpt_verAdmins;
     }
 }

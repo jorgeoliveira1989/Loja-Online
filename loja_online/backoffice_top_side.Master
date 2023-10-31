@@ -26,9 +26,9 @@
           <div class="bg-secondary p-2">
             <div class="container d-flex justify-content-between align-items-center">
                  <h1 class="text-white font-weight-bold">BACKOFFICE</h1>
-                 <div id="clock" class="text-white"></div>
-                 <img src="admin.jpg" alt="foto" width="50" height="50"/>
-                <asp:Button ID="btn_sair" runat="server" class="btn btn-danger" Text="SAIR" OnClick="btn_sair_Click" />
+                 <div id="clock" class="text-white font-weight-bold"></div>
+                 <asp:Label ID="lbl_user" runat="server" Text="Label"></asp:Label>
+                 <asp:Button ID="btn_sair" runat="server" class="btn btn-danger" Text="SAIR" OnClick="btn_sair_Click" />
             </div>
           </div>
         
@@ -40,9 +40,9 @@
                     <a href="visualizar_clientes.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Clientes</a>
                 <br />
                 <h4><b>PRODUTOS</b></h4>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Produtos</a>
+                    <a href="visualizar_produtos.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Produtos</a>
                     <a href="criar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Criar Produto</a>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Editar Produto</a>
+                    <a href="editar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Editar Produto</a>
                     <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Apagar Produto</a>
                     <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Gestão de Stock</a>
                 <br />
@@ -51,7 +51,7 @@
                 <br />
                 <h4><b>OUTRAS</b></h4>
                     <a href="criar_conta_admin.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Criar Conta Admin</a>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Contas Admin</a>
+                    <a href="visualizar_admins.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Contas Admin</a>
                     <!-- Adicionar mais links conforme necessário -->
                 
                 <br />

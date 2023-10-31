@@ -74,10 +74,13 @@
     <Content Include="criar_conta.aspx" />
     <Content Include="criar_conta_admin.aspx" />
     <Content Include="criar_produto.aspx" />
+    <Content Include="editar_produto.aspx" />
     <Content Include="image\guitarra.jpeg" />
     <Content Include="image\homem-rosto.jpg" />
     <Content Include="image\Revendedor.jpg" />
+    <Content Include="visualizar_admins.aspx" />
     <Content Include="visualizar_clientes.aspx" />
+    <Content Include="visualizar_produtos.aspx" />
     <Content Include="zzz-backoffice1.aspx" />
     <Content Include="css\all.css" />
     <Content Include="css\all.min.css" />
@@ -2221,12 +2224,33 @@
     <Compile Include="criar_produto.aspx.designer.cs">
       <DependentUpon>criar_produto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="editar_produto.aspx.cs">
+      <DependentUpon>editar_produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editar_produto.aspx.designer.cs">
+      <DependentUpon>editar_produto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizar_admins.aspx.cs">
+      <DependentUpon>visualizar_admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizar_admins.aspx.designer.cs">
+      <DependentUpon>visualizar_admins.aspx</DependentUpon>
+    </Compile>
     <Compile Include="visualizar_clientes.aspx.cs">
       <DependentUpon>visualizar_clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="visualizar_clientes.aspx.designer.cs">
       <DependentUpon>visualizar_clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizar_produtos.aspx.cs">
+      <DependentUpon>visualizar_produtos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizar_produtos.aspx.designer.cs">
+      <DependentUpon>visualizar_produtos.aspx</DependentUpon>
     </Compile>
     <Compile Include="zzz-backoffice1.aspx.cs">
       <DependentUpon>zzz-backoffice1.aspx</DependentUpon>
