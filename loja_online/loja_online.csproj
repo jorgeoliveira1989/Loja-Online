@@ -70,13 +70,18 @@
     <Content Include="ativacao_admin.aspx" />
     <Content Include="ativacao_cliente.aspx" />
     <Content Include="ativacao_revendedor.aspx" />
+    <Content Include="ativar_produto.aspx" />
     <Content Include="backoffice.aspx" />
     <Content Include="criar_conta.aspx" />
     <Content Include="criar_conta_admin.aspx" />
     <Content Include="criar_produto.aspx" />
+    <Content Include="desativar_produto.aspx" />
     <Content Include="editar_produto.aspx" />
     <Content Include="image\guitarra.jpeg" />
     <Content Include="image\homem-rosto.jpg" />
+    <Content Include="image\image1.jpg" />
+    <Content Include="image\image2.jpg" />
+    <Content Include="image\image3.jpg" />
     <Content Include="image\Revendedor.jpg" />
     <Content Include="visualizar_admins.aspx" />
     <Content Include="visualizar_clientes.aspx" />
@@ -2196,6 +2201,13 @@
     <Compile Include="ativacao_revendedor.aspx.designer.cs">
       <DependentUpon>ativacao_revendedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ativar_produto.aspx.cs">
+      <DependentUpon>ativar_produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ativar_produto.aspx.designer.cs">
+      <DependentUpon>ativar_produto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="backoffice.aspx.cs">
       <DependentUpon>backoffice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2223,6 +2235,13 @@
     </Compile>
     <Compile Include="criar_produto.aspx.designer.cs">
       <DependentUpon>criar_produto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="desativar_produto.aspx.cs">
+      <DependentUpon>desativar_produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="desativar_produto.aspx.designer.cs">
+      <DependentUpon>desativar_produto.aspx</DependentUpon>
     </Compile>
     <Compile Include="editar_produto.aspx.cs">
       <DependentUpon>editar_produto.aspx</DependentUpon>

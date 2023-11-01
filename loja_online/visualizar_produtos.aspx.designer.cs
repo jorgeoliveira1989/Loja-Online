@@ -15,6 +15,15 @@ namespace loja_online
     {
 
         /// <summary>
+        /// ddl_atividadeProduto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_atividadeProduto;
+
+        /// <summary>
         /// rpt_produtos control.
         /// </summary>
         /// <remarks>

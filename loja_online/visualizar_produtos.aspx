@@ -13,13 +13,30 @@
             color:green;
             font-weight:bold;
         }
+        .negativo{
+            color:red;
+            font-weight:bold;
+        }
+        .positivo{
+            color:green;
+            font-weight:bold;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container d-flex justify-content-center align-items-center" style="height: 60vh;">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="p-4 border rounded bg-light">
            <br />
-                <h1>Produtos</h1>
+            <h5>Estado do Produto</h5>
+            <br />
+            <asp:DropDownList ID="ddl_atividadeProduto" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_atividadeProduto_SelectedIndexChanged">
+                <asp:ListItem>--------------</asp:ListItem>
+                <asp:ListItem>Ativo</asp:ListItem>
+                <asp:ListItem>Inativo</asp:ListItem>
+            </asp:DropDownList>
+             <br />
+            <h1>Produtos</h1>
+            <br />
             <asp:Repeater ID="rpt_produtos" runat="server">
                 <HeaderTemplate>
                     <table border="1" width="1000">
@@ -30,6 +47,7 @@
                             <td><b>Preço</b></td>
                             <td><b>Quantidade</b></td>
                             <td><b>Preço Revenda</b></td>
+                            <td><b>Ativo</b></td>
                             
                         </tr>
                 </HeaderTemplate>
@@ -38,10 +56,10 @@
                          <td><%# Eval("id_produto")%></td>
                          <td><asp:Image ID="foto_produto" runat="server" Width="50" Height="50" ImageUrl='<%# Eval("imagemSrc") %>' AlternateText="Pré-visualização" /></td>
                          <td><%# Eval("produto")%></td>
-                         <td><%# Eval("preco")%></td>
+                         <td><%# Eval("preco")%> €</td>
                          <td class="<%# Eval("quantidadeprodutocss")%>"><%# Eval("quantidade")%></td>
-                         <td><%# Eval("preco_revenda")%></td>
-                         
+                         <td><%# Eval("preco_revenda")%> €</td>
+                         <td class="<%# Eval("ativoCSS") %>"><%# Eval("ativo") %></td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>

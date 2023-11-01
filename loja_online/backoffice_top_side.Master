@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Backoffice - Admin</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
         <script>
             function updateClock() {
@@ -27,8 +28,8 @@
             <div class="container d-flex justify-content-between align-items-center">
                  <h1 class="text-white font-weight-bold">BACKOFFICE</h1>
                  <div id="clock" class="text-white font-weight-bold"></div>
-                 <asp:Label ID="lbl_user" runat="server" Text="Label"></asp:Label>
-                 <asp:Button ID="btn_sair" runat="server" class="btn btn-danger" Text="SAIR" OnClick="btn_sair_Click" />
+                 <i class="fa-solid fa-circle-user" style="color: #ff0000;"> <asp:Label ID="lbl_user" runat="server" Text="Label"></asp:Label></i>
+                 <asp:Button ID="btn_sair" runat="server" class="btn btn-danger" Text="SAIR" OnClick="btn_sair_Click"/>
             </div>
           </div>
         
@@ -37,21 +38,21 @@
                     <br />
                     <br />
                 <h4><b>CLIENTES</b></h4>
-                    <a href="visualizar_clientes.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Clientes</a>
+                    <a href="visualizar_clientes.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-users" style="color: #ff0000;"></i> Visualizar Clientes</a>
                 <br />
                 <h4><b>PRODUTOS</b></h4>
-                    <a href="visualizar_produtos.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Produtos</a>
-                    <a href="criar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Criar Produto</a>
-                    <a href="editar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Editar Produto</a>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Apagar Produto</a>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Gestão de Stock</a>
+                    <a href="visualizar_produtos.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-boxes-stacked" style="color: #ff0000;"></i> Visualizar Produtos</a>
+                    <a href="criar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-circle-plus" style="color: #ff0000;"></i> Criar Produto</a>
+                    <a href="editar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-pen-to-square" style="color: #ff0000;"></i> Editar Produto</a>
+                    <a href="desativar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-off" style="color: #ff0000;"></i> Desativar Produto</a>
+                    <a href="ativar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-on" style="color: #ff0000;"></i> Ativar Produto</a> 
                 <br />
                 <h4><b>ENCOMENDAS</b></h4>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Encomendas</a>
+                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-regular fa-calendar-plus" style="color: #ff0000;"></i> Visualizar Encomendas</a>
                 <br />
                 <h4><b>OUTRAS</b></h4>
-                    <a href="criar_conta_admin.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Criar Conta Admin</a>
-                    <a href="visualizar_admins.aspx" class="text-white text-decoration-none d-block mb-2 m-2">Visualizar Contas Admin</a>
+                    <a href="criar_conta_admin.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-plus" style="color: #ff0000;"></i> Criar Conta Admin</a>
+                    <a href="visualizar_admins.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-user-tie" style="color: #fa0000;"></i> Visualizar Contas Admin</a>
                     <!-- Adicionar mais links conforme necessário -->
                 
                 <br />

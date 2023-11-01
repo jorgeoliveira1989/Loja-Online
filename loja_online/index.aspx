@@ -5,13 +5,13 @@
             <div id="meuCarrossel" class="carousel slide w-100 h-700" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="image/imagem%201920x600.jpg" alt="Imagem 1" class="w-100">
+                    <img src="image/image1.jpg" alt="Imagem 1" class="w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagem2.jpg" alt="Imagem 2" class="w-100">
+                    <img src="image/image2.jpg" alt="Imagem 2" class="w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagem3.jpg" alt="Imagem 3" class="w-100">
+                    <img src="image/image3.jpg" alt="Imagem 3" class="w-100">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#meuCarrossel" role="button" data-slide="prev">
