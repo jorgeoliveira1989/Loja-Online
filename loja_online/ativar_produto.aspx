@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
 <div class="p-4 border rounded bg-light">
     <h3 class="mb-4 text-center"><b>Ativar Produto</b></h3>
     <div>

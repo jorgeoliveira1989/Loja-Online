@@ -11,61 +11,61 @@ namespace loja_online
 {
 
 
-    public partial class cabecalho_rodapé
+    public partial class alterarTipoconta_cliente
     {
 
         /// <summary>
-        /// head control.
+        /// ddl_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_id;
 
         /// <summary>
-        /// form1 control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// txt_pesquisar control.
+        /// lbl_tipoConta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_pesquisar;
+        protected global::System.Web.UI.WebControls.Label lbl_tipoConta;
 
         /// <summary>
-        /// btn_procurar control.
+        /// lbl_altera_conta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_procurar;
+        protected global::System.Web.UI.WebControls.Label lbl_altera_conta;
 
         /// <summary>
-        /// lb_valor control.
+        /// btn_alterar_tipo_conta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_valor;
+        protected global::System.Web.UI.WebControls.Button btn_alterar_tipo_conta;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// lbl_mensagem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Label lbl_mensagem;
     }
 }

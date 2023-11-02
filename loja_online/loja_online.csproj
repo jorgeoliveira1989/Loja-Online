@@ -67,14 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="alterarTipoconta_cliente.aspx" />
     <Content Include="ativacao_admin.aspx" />
     <Content Include="ativacao_cliente.aspx" />
     <Content Include="ativacao_revendedor.aspx" />
+    <Content Include="ativar_cliente.aspx" />
     <Content Include="ativar_produto.aspx" />
     <Content Include="backoffice.aspx" />
     <Content Include="criar_conta.aspx" />
     <Content Include="criar_conta_admin.aspx" />
     <Content Include="criar_produto.aspx" />
+    <Content Include="desativar_cliente.aspx" />
     <Content Include="desativar_produto.aspx" />
     <Content Include="editar_produto.aspx" />
     <Content Include="image\guitarra.jpeg" />
@@ -124,7 +127,6 @@
     <Content Include="image\customer-support.png" />
     <Content Include="image\entrega-rapida.png" />
     <Content Include="image\escudo.png" />
-    <Content Include="image\imagem 1920x600.jpg" />
     <Content Include="image\relogio.png" />
     <Content Include="index.aspx" />
     <Content Include="index1.aspx" />
@@ -2180,6 +2182,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alterarTipoconta_cliente.aspx.cs">
+      <DependentUpon>alterarTipoconta_cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alterarTipoconta_cliente.aspx.designer.cs">
+      <DependentUpon>alterarTipoconta_cliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ativacao_admin.aspx.cs">
       <DependentUpon>ativacao_admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2200,6 +2209,13 @@
     </Compile>
     <Compile Include="ativacao_revendedor.aspx.designer.cs">
       <DependentUpon>ativacao_revendedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ativar_cliente.aspx.cs">
+      <DependentUpon>ativar_cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ativar_cliente.aspx.designer.cs">
+      <DependentUpon>ativar_cliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ativar_produto.aspx.cs">
       <DependentUpon>ativar_produto.aspx</DependentUpon>
@@ -2236,6 +2252,13 @@
     <Compile Include="criar_produto.aspx.designer.cs">
       <DependentUpon>criar_produto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="desativar_cliente.aspx.cs">
+      <DependentUpon>desativar_cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="desativar_cliente.aspx.designer.cs">
+      <DependentUpon>desativar_cliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="desativar_produto.aspx.cs">
       <DependentUpon>desativar_produto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2250,6 +2273,7 @@
     <Compile Include="editar_produto.aspx.designer.cs">
       <DependentUpon>editar_produto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Produtos.cs" />
     <Compile Include="visualizar_admins.aspx.cs">
       <DependentUpon>visualizar_admins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

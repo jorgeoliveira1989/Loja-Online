@@ -10,16 +10,17 @@ using System.Web.UI.WebControls;
 
 namespace loja_online
 {
-    public partial class desativar_produto : System.Web.UI.Page
+    public partial class ativar_cliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["username"] == null)
             {
-                // A sessão é nula, redireciona para index.aspx
-                Response.Redirect("index.aspx");
+            // A sessão é nula, redireciona para index.aspx
+            Response.Redirect("index.aspx");
             }
-
+           
         }
 
         protected void ddl_id_SelectedIndexChanged(object sender, EventArgs e)
@@ -27,39 +28,38 @@ namespace loja_online
             int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
 
             // Chamar a stored procedure para obter o nome
-            string produto = ObterNomePorID(idSelecionado); // Método para chamar a stored procedure
+            string cliente = ObterNomePorID(idSelecionado); // Método para chamar a stored procedure
 
             // Preencher a TextBox com o nome
-            lbl_produto.Text = produto;
+            lbl_cliente.Text = cliente;
         }
 
         private string ObterNomePorID(int id)
         {
-            string produto = string.Empty;
+            string cliente = string.Empty;
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
-
             {
-                using (SqlCommand command = new SqlCommand("ObterDadosPorID", myconn))
+                using (SqlCommand command = new SqlCommand("ObterDadosCliente", myconn))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ID", id);
 
                     myconn.Open();
-                    produto = (string)command.ExecuteScalar();
+                    cliente = (string)command.ExecuteScalar();
                 }
             }
 
-            return produto;
+            return cliente;
         }
 
-        protected void btn_desativar_produto_Click(object sender, EventArgs e)
+        protected void btn_ativar_cliente_Click(object sender, EventArgs e)
         {
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
 
             SqlCommand mycomm = new SqlCommand();
             mycomm.CommandType = CommandType.StoredProcedure;
-            mycomm.CommandText = "desativar_produto";
+            mycomm.CommandText = "ativar_cliente";
 
             mycomm.Connection = myconn;
 
@@ -69,8 +69,8 @@ namespace loja_online
             valor.SqlDbType = SqlDbType.Int;
 
             mycomm.Parameters.Add(valor);
-            mycomm.Parameters.AddWithValue("id_produto", ddl_id.Text);
-            mycomm.Parameters.AddWithValue("@produto", lbl_produto.Text);
+            mycomm.Parameters.AddWithValue("@id_cliente", ddl_id.Text);
+            mycomm.Parameters.AddWithValue("@nome", lbl_cliente.Text);
 
             myconn.Open();
             mycomm.ExecuteNonQuery();
@@ -79,11 +79,11 @@ namespace loja_online
             myconn.Close();
             if (resposta == 1)
             {
-                lbl_mensagem.Text = "Produto desativado com sucesso!!!";
+                lbl_mensagem.Text = "Cliente ativado com sucesso!!!";
             }
             else
             {
-                lbl_mensagem.Text = "Produto não foi desativado!!!";
+                lbl_mensagem.Text = "Cliente não foi ativado!!!";
             }
         }
     }

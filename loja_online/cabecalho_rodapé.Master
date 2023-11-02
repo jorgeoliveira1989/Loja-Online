@@ -42,7 +42,7 @@
 
                     <!-- Caixa de pesquisa centralizada -->
                     <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
-                        <asp:TextBox ID="text" runat="server" CssClass="form-control" placeholder="Pesquisar produtos"></asp:TextBox>
+                        <asp:TextBox ID="txt_pesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar produtos" OnTextChanged="txt_pesquisar_TextChanged"></asp:TextBox>
                         <div class="input-group-append">
                             <asp:Button ID="btn_procurar" runat="server" Text="Pesquisar" CssClass="btn btn-danger" />
                         </div>
@@ -65,11 +65,11 @@
 </div>
 
 <div class="bg-gray text-center py-3 h-105">
-    <a href="index.aspx" class="mx-3 custom-link">Opção 1</a>
-    <a href="pagina2.html" class="mx-3 custom-link">Opção 2</a>
-    <a href="pagina3.html" class="mx-3 custom-link">Opção 3</a>
-    <a href="pagina4.html" class="mx-3 custom-link">Opção 4</a>
-    <a href="pagina5.html" class="mx-3 custom-link"><b>0,00</b> <i class="fas fa-euro-sign"></i></a>
+    <a href="index.aspx" class="mx-3 custom-link"><i class="fa-solid fa-house" style="color: #ff0000;"></i> <b>HOME</b></a>
+    <a href="pagina2.html" class="mx-3 custom-link"><b> < 100€</b></a>
+    <a href="pagina3.html" class="mx-3 custom-link"><b>100€ - 300€</b></a>
+    <a href="pagina4.html" class="mx-3 custom-link"><b> > 300€</b></a>
+    <b><asp:LinkButton ID="lb_valor" class="mx-3 custom-link" runat="server" OnClick="lb_valor_Click">0,00 €</asp:LinkButton></b>
     <a href="pagina6.html" class="mx-3 custom-link"><i class="fas fa-shopping-cart"></i></a>
 </div>
         <div>

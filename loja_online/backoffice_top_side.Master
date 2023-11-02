@@ -38,14 +38,18 @@
                     <br />
                     <br />
                 <h4><b>CLIENTES</b></h4>
-                    <a href="visualizar_clientes.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-users" style="color: #ff0000;"></i> Visualizar Clientes</a>
+                    <a href="visualizar_clientes.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-users" style="color: #ff0000;"></i> Visualizar Clientes</a>    
+                    <a href="ativar_cliente.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-on" style="color: #30fe06;"></i> Ativar Clientes</a>
+                    <a href="desativar_cliente.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-off" style="color: #ff0000;"></i> Desativar Clientes</a>
+                    <a href="alterarTipoconta_cliente.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-right-left" style="color: #ff0000;"></i> Alterar Tipo Conta</a>
                 <br />
                 <h4><b>PRODUTOS</b></h4>
                     <a href="visualizar_produtos.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-boxes-stacked" style="color: #ff0000;"></i> Visualizar Produtos</a>
                     <a href="criar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-circle-plus" style="color: #ff0000;"></i> Criar Produto</a>
                     <a href="editar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-pen-to-square" style="color: #ff0000;"></i> Editar Produto</a>
+                    <a href="ativar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-on" style="color: #30fe06;"></i> Ativar Produto</a>
                     <a href="desativar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-off" style="color: #ff0000;"></i> Desativar Produto</a>
-                    <a href="ativar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-on" style="color: #ff0000;"></i> Ativar Produto</a> 
+                     
                 <br />
                 <h4><b>ENCOMENDAS</b></h4>
                     <a href="#" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-regular fa-calendar-plus" style="color: #ff0000;"></i> Visualizar Encomendas</a>

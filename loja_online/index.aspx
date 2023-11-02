@@ -1,5 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/cabecalho_rodapé.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="loja_online.index1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <style>
+        #productContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .productCard {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <div id="meuCarrossel" class="carousel slide w-100 h-700" data-ride="carousel">
@@ -54,120 +68,40 @@
             </div>
         </div>
     </div>
-<div class="container mt-5">
-    <div class="row">
-        <!-- Produto 1 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto1.jpg" class="card-img-top" alt="Produto 1">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 1</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto1.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-   <!-- Produto 2 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto2.jpg" class="card-img-top" alt="Produto 2">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 2</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto2.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto3.jpg" class="card-img-top" alt="Produto 3">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 3</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto3.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 4 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto4.jpg" class="card-img-top" alt="Produto 4">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 4</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto4.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 5 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto5.jpg" class="card-img-top" alt="Produto 5">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 5</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto5.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 6 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto6.jpg" class="card-img-top" alt="Produto 6">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 6</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto6.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 7 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto7.jpg" class="card-img-top" alt="Produto 7">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 7</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto7.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produto 8 -->
-        <div class="col-md-3 mb-4">
-            <div class="card text-center">
-                <img src="produto8.jpg" class="card-img-top" alt="Produto 8">
-                <div class="card-body">
-                    <h5 class="card-title">Descrição do Produto 8</h5>
-                    <p class="card-text">
-                        Preço: <strong class="text-danger">XX,XX€</strong>
-                    </p>
-                    <a href="produto8.html" class="btn btn-danger">Ver Produto</a>
-                </div>
-            </div>
+    
+<div id="form1" runat="server">
+    <div class="container text-center">
+        <h1 style="color: rgb(255, 0, 0); font-weight: bold;">Produtos</h1>
+                <label __designer:mapid="196">
+                <b>Ordenar:</b> <asp:DropDownList ID="ddl_opcoes" runat="server" AutoPostBack="True">
+                    <asp:ListItem>-----------------</asp:ListItem>
+                    <asp:ListItem>Nome Produto</asp:ListItem>
+                    <asp:ListItem>Preço Ascendente</asp:ListItem>
+                    <asp:ListItem>Preço Descendente</asp:ListItem>
+                </asp:DropDownList>
+                </label>
+            <br />
+        <br />
+        <div class="row" id="productContainer">
+            <asp:Repeater ID="rptProdutos" runat="server">
+                <ItemTemplate>
+                    <div class="col-md-3 mb-4 productCard">
+                        <div class="card">
+                            <asp:Image ID="foto_produto" runat="server" ImageUrl='<%# Eval("imagemSrc") %>' AlternateText="Pré-visualização" />
+                            <div class="card-body">
+                                <h4 class="card-title"><b><%# Eval("produto") %></b></h4>
+                                <p class="card-text"><%# Eval("designacao") %></p>
+                                <p class="card-text">Preço: <%# Eval("preco", "{0:C}") %></p>
+                                <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" CssClass="btn btn-danger btn-lg" />
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
-</div>
+ </div>  
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
