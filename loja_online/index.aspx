@@ -5,7 +5,7 @@
         #productContainer {
         display: flex;
         flex-wrap: wrap;
-    }
+        }
 
     .productCard {
         display: flex;

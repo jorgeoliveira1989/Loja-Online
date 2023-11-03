@@ -11,7 +11,7 @@ namespace loja_online
 {
 
 
-    public partial class index
+    public partial class carrinho
     {
 
         /// <summary>
@@ -21,24 +21,15 @@ namespace loja_online
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl form1;
 
         /// <summary>
-        /// text control.
+        /// rptCarrinho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text;
-
-        /// <summary>
-        /// btn_procurar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_procurar;
+        protected global::System.Web.UI.WebControls.Repeater rptCarrinho;
     }
 }

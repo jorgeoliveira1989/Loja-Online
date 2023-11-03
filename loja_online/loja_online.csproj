@@ -74,6 +74,7 @@
     <Content Include="ativar_cliente.aspx" />
     <Content Include="ativar_produto.aspx" />
     <Content Include="backoffice.aspx" />
+    <Content Include="carrinho.aspx" />
     <Content Include="criar_conta.aspx" />
     <Content Include="criar_conta_admin.aspx" />
     <Content Include="criar_produto.aspx" />
@@ -86,6 +87,7 @@
     <Content Include="image\image2.jpg" />
     <Content Include="image\image3.jpg" />
     <Content Include="image\Revendedor.jpg" />
+    <Content Include="loja_online.aspx" />
     <Content Include="visualizar_admins.aspx" />
     <Content Include="visualizar_clientes.aspx" />
     <Content Include="visualizar_produtos.aspx" />
@@ -129,7 +131,6 @@
     <Content Include="image\escudo.png" />
     <Content Include="image\relogio.png" />
     <Content Include="index.aspx" />
-    <Content Include="index1.aspx" />
     <Content Include="js\all.js" />
     <Content Include="js\all.min.js" />
     <Content Include="js\bootstrap.bundle.js" />
@@ -2231,6 +2232,13 @@
     <Compile Include="backoffice.aspx.designer.cs">
       <DependentUpon>backoffice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="carrinho.aspx.cs">
+      <DependentUpon>carrinho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="carrinho.aspx.designer.cs">
+      <DependentUpon>carrinho.aspx</DependentUpon>
+    </Compile>
     <Compile Include="criar_conta.aspx.cs">
       <DependentUpon>criar_conta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2272,6 +2280,13 @@
     </Compile>
     <Compile Include="editar_produto.aspx.designer.cs">
       <DependentUpon>editar_produto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loja_online.aspx.cs">
+      <DependentUpon>loja_online.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loja_online.aspx.designer.cs">
+      <DependentUpon>loja_online.aspx</DependentUpon>
     </Compile>
     <Compile Include="Produtos.cs" />
     <Compile Include="visualizar_admins.aspx.cs">
@@ -2322,13 +2337,6 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="index1.aspx.cs">
-      <DependentUpon>index1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="index1.aspx.designer.cs">
-      <DependentUpon>index1.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -14,5 +14,6 @@ namespace loja_online
         public byte[] foto { get; set; }
         public string Contenttype { get; set; }
         public string imagemSrc { get; set; }
+        public int Quantidade {  get; set; }
     }
 }
