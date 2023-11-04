@@ -26,7 +26,7 @@
     <form id="form1" runat="server">
           <div class="bg-secondary p-2">
             <div class="container d-flex justify-content-between align-items-center">
-                 <h1 class="text-white font-weight-bold">BACKOFFICE</h1>
+                 <a href="backoffice.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><h1 class="text-white font-weight-bold">BACKOFFICE</h1></a>
                  <div id="clock" class="text-white font-weight-bold"></div>
                  <i class="fa-solid fa-circle-user" style="color: #ff0000;"> <asp:Label ID="lbl_user" runat="server" Text="Label"></asp:Label></i>
                  <asp:Button ID="btn_sair" runat="server" class="btn btn-danger" Text="SAIR" OnClick="btn_sair_Click"/>

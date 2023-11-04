@@ -239,6 +239,7 @@ namespace loja_online
             int produtoID = Convert.ToInt32(argumentos[0]);
             string nomeProduto = argumentos[1];
             decimal preco = Convert.ToDecimal(argumentos[2]);
+            string imagemSrc = argumentos[3];
 
             // Obtém o valor acumulado da sessão (ou 0 se for a primeira vez)
             decimal valorAcumulado = (Session["ValorAcumulado"] != null) ? (decimal)Session["ValorAcumulado"] : 0;
@@ -253,9 +254,10 @@ namespace loja_online
             Session["ValorAcumulado"] = valorAcumulado;
 
            string produtoid = Convert.ToString(btn.CommandArgument);
-
+            
             Produtos item = new Produtos
             {
+                imagemSrc=imagemSrc,
                 id_produto = produtoID,
                 produto = nomeProduto,
                 preco = preco, // Usando o preço do botão

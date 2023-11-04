@@ -10,7 +10,6 @@ namespace loja_online
 {
     public partial class carrinho : System.Web.UI.Page
     {
-
         private List<Produtos> ListaProdutosCarrinho
         {
             get
@@ -27,10 +26,11 @@ namespace loja_online
             if (!IsPostBack)
             {
                 AtualizarCarrinho();
+
             }
         }
 
-        protected void rptCarrinho_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+        protected void rptCarrinho_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
             switch (e.CommandName)
@@ -43,24 +43,66 @@ namespace loja_online
                     break;
             }
             AtualizarCarrinho();
+            
         }
 
         private void SubtrairQuantidade(int index)
         {
             if (ListaProdutosCarrinho[index].Quantidade > 0)
+            {
                 ListaProdutosCarrinho[index].Quantidade--;
+                if (ListaProdutosCarrinho[index].Quantidade == 0)
+                {
+                    ListaProdutosCarrinho.RemoveAt(index);
+                }
+            }
+
+            // Atualiza o valor total do carrinho após subtrair a quantidade
+            AtualizarValorTotal();
         }
 
         private void AdicionarQuantidade(int index)
         {
-            ListaProdutosCarrinho[index].Quantidade = ListaProdutosCarrinho[index].Quantidade + 1;
+            ListaProdutosCarrinho[index].Quantidade++;
+            if (ListaProdutosCarrinho[index].Quantidade == 0)
+            {
+                ListaProdutosCarrinho.RemoveAt(index);
+            }
+
+            // Atualiza o valor total do carrinho após adicionar a quantidade
+            AtualizarValorTotal();
         }
 
         private void AtualizarCarrinho()
         {
             rptCarrinho.DataSource = ListaProdutosCarrinho;
             rptCarrinho.DataBind();
+
+            // Atualiza o valor total do carrinho
+            AtualizarValorTotal();
         }
 
+        private void AtualizarValorTotal()
+        {
+            decimal valorTotal = 0;
+
+            foreach (var produto in ListaProdutosCarrinho)
+            {
+                valorTotal += produto.preco * produto.Quantidade;
+            }
+
+            lbl_valor.Text = valorTotal.ToString("C");
+        }
+        public int CalcularTotalArtigos()
+        {
+            int totalArtigos = 0;
+
+            foreach (var item in ListaProdutosCarrinho)
+            {
+                totalArtigos += item.Quantidade;
+            }
+
+            return totalArtigos;
+        }
     }
 }

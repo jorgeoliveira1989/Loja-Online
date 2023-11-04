@@ -149,7 +149,7 @@
                                     <h4 class="card-title"><b><%# Eval("produto") %></b></h4>
                                     <p class="card-text"><%# Eval("designacao") %></p>
                                     <p class="card-text">Preço: <%# Eval("preco", "{0:C}") %></p>
-                                    <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar ao Carrinho" CssClass="btn btn-danger" OnClick="btnAdicionar_Click" CommandArgument='<%# Eval("id_produto") + "|" + Eval("produto") + "|" + Eval("Preco") %>' CausesValidation="False" />
+                                    <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar ao Carrinho" CssClass="btn btn-danger" OnClick="btnAdicionar_Click" CommandArgument='<%# Eval("id_produto") + "|" + Eval("produto") + "|" + Eval("Preco") + "|" + Eval("imagemSrc") %>' CausesValidation="False" />
                                 </div>
                         </div>
                     </div>
