@@ -14,6 +14,22 @@ namespace loja_online
         string query = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                decimal valorTotal = 0;
+
+                if (Session["ValorAcumulado"] != null && Decimal.TryParse(Session["ValorAcumulado"].ToString(), out valorTotal))
+                {
+                    lbl_valor.Text = valorTotal > 0 ? valorTotal.ToString("C") : "0,00 €";
+                }
+                else
+                {
+                    lbl_valor.Text = "0,00 €";
+                }
+            }
+
+
+
             if (ddl_opcoes.SelectedItem.ToString() == "Nome Produto")
             {
                 query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY produto";
@@ -233,51 +249,52 @@ namespace loja_online
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            string[] argumentos = btn.CommandArgument.ToString().Split('|');
+              Button btn = (Button)sender;
+              string[] argumentos = btn.CommandArgument.ToString().Split('|');
 
-            int produtoID = Convert.ToInt32(argumentos[0]);
-            string nomeProduto = argumentos[1];
-            decimal preco = Convert.ToDecimal(argumentos[2]);
-            string imagemSrc = argumentos[3];
+              int produtoID = Convert.ToInt32(argumentos[0]);
+              string nomeProduto = argumentos[1];
+              decimal preco = Convert.ToDecimal(argumentos[2]);
+              string imagemSrc = argumentos[3];
 
-            // Obtém o valor acumulado da sessão (ou 0 se for a primeira vez)
-            decimal valorAcumulado = (Session["ValorAcumulado"] != null) ? (decimal)Session["ValorAcumulado"] : 0;
+              // Obtém o valor acumulado da sessão (ou 0 se for a primeira vez)
+              decimal valorAcumulado = (Session["ValorAcumulado"] != null) ? (decimal)Session["ValorAcumulado"] : 0;
 
-            // Soma o novo preço ao valor acumulado
-            valorAcumulado = valorAcumulado + preco;
+              // Soma o novo preço ao valor acumulado
+              valorAcumulado = valorAcumulado + preco;
 
-            // Atualiza o valor na label
-            lbl_valor.Text = valorAcumulado.ToString("C");
 
-            // Atualiza o valor acumulado na sessão
-            Session["ValorAcumulado"] = valorAcumulado;
+              // Atualiza o valor na label
+              lbl_valor.Text = valorAcumulado.ToString("C");
 
-           string produtoid = Convert.ToString(btn.CommandArgument);
-            
-            Produtos item = new Produtos
-            {
-                imagemSrc=imagemSrc,
-                id_produto = produtoID,
-                produto = nomeProduto,
-                preco = preco, // Usando o preço do botão
-                Quantidade = 1 // Quantidade inicial
-            };
+              // Atualiza o valor acumulado na sessão
+              Session["ValorAcumulado"] = valorAcumulado;
 
-            List<Produtos> carrinho;
+             string produtoid = Convert.ToString(btn.CommandArgument);
 
-            if (Session["Carrinho"] == null)
-            {
-                carrinho = new List<Produtos>();
-            }
-            else
-            {
-                carrinho = (List<Produtos>)Session["Carrinho"];
-            }
+              Produtos item = new Produtos
+              {
+                  imagemSrc=imagemSrc,
+                  id_produto = produtoID,
+                  produto = nomeProduto,
+                  preco = preco, // Usando o preço do botão
+                  Quantidade = 1 // Quantidade inicial
+              };
 
-            carrinho.Add(item);
+              List<Produtos> carrinho;
 
-            Session["Carrinho"] = carrinho;
+              if (Session["Carrinho"] == null)
+              {
+                  carrinho = new List<Produtos>();
+              }
+              else
+              {
+                  carrinho = (List<Produtos>)Session["Carrinho"];
+              }
+
+              carrinho.Add(item);
+
+              Session["Carrinho"] = carrinho;
 
         }
     }

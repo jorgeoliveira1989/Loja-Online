@@ -10,6 +10,8 @@ namespace loja_online
 {
     public partial class carrinho : System.Web.UI.Page
     {
+
+        decimal valorTotal = 0;
         private List<Produtos> ListaProdutosCarrinho
         {
             get
@@ -48,17 +50,20 @@ namespace loja_online
 
         private void SubtrairQuantidade(int index)
         {
-            if (ListaProdutosCarrinho[index].Quantidade > 0)
-            {
-                ListaProdutosCarrinho[index].Quantidade--;
-                if (ListaProdutosCarrinho[index].Quantidade == 0)
-                {
-                    ListaProdutosCarrinho.RemoveAt(index);
+             if (ListaProdutosCarrinho[index].Quantidade > 0)
+             {
+                 ListaProdutosCarrinho[index].Quantidade--;
+                 if (ListaProdutosCarrinho[index].Quantidade == 0)
+                 {
+                     ListaProdutosCarrinho.RemoveAt(index);
+                    
                 }
-            }
+             }
 
-            // Atualiza o valor total do carrinho após subtrair a quantidade
-            AtualizarValorTotal();
+             // Atualiza o valor total do carrinho após subtrair a quantidade
+             AtualizarValorTotal();
+            Session["ValorTotal"] = valorTotal;
+            AtualizarValorAcumulado();
         }
 
         private void AdicionarQuantidade(int index)
@@ -84,7 +89,7 @@ namespace loja_online
 
         private void AtualizarValorTotal()
         {
-            decimal valorTotal = 0;
+            valorTotal = 0;
 
             foreach (var produto in ListaProdutosCarrinho)
             {
@@ -92,6 +97,8 @@ namespace loja_online
             }
 
             lbl_valor.Text = valorTotal.ToString("C");
+
+            Session["ValorTotal"] = valorTotal;
         }
         public int CalcularTotalArtigos()
         {
@@ -104,5 +111,18 @@ namespace loja_online
 
             return totalArtigos;
         }
+
+        private void AtualizarValorAcumulado()
+        {
+            decimal valorAcumulado = 0;
+
+            foreach (var produto in ListaProdutosCarrinho)
+            {
+                valorAcumulado += produto.preco * produto.Quantidade;
+            }
+
+            Session["ValorAcumulado"] = valorAcumulado;
+        }
+
     }
 }
