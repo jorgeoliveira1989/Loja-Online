@@ -19,7 +19,7 @@ namespace loja_online
             
             Session.Clear();
             Session.Abandon();
-            Response.Redirect("index.aspx");
+            Response.Redirect("loja_online.aspx");
         }
     }
 }

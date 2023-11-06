@@ -22,6 +22,7 @@ namespace loja_online
         protected void btn_entrar_Click(object sender, EventArgs e)
         {
             Session["username"] = txt_user.Text;
+            Session["cargo"] = ddl_tipo.Text;
 
             cargo = ddl_tipo.SelectedItem.ToString();
 

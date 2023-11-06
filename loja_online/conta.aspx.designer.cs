@@ -11,133 +11,97 @@ namespace loja_online
 {
 
 
-    public partial class loja_online
+    public partial class conta
     {
 
         /// <summary>
-        /// form1 control.
+        /// btn_alterarSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btn_alterarSenha;
 
         /// <summary>
-        /// txt_pesquisar control.
+        /// btn_verCompras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_pesquisar;
+        protected global::System.Web.UI.WebControls.Button btn_verCompras;
 
         /// <summary>
-        /// btn_procurar control.
+        /// btn_Sair control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_procurar;
+        protected global::System.Web.UI.WebControls.Button btn_Sair;
 
         /// <summary>
-        /// lb_minhaConta control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_minhaConta;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// lbl_nome control.
+        /// txtSenhaAtual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbl_nome;
+        protected global::System.Web.UI.WebControls.TextBox txtSenhaAtual;
 
         /// <summary>
-        /// Lb_menos100 control.
+        /// txtNovaSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Lb_menos100;
+        protected global::System.Web.UI.WebControls.TextBox txtNovaSenha;
 
         /// <summary>
-        /// lb_entre100e300 control.
+        /// txtConfirmarNovaSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_entre100e300;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmarNovaSenha;
 
         /// <summary>
-        /// lb_mais300 control.
+        /// btnAlterarSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_mais300;
+        protected global::System.Web.UI.WebControls.Button btnAlterarSenha;
 
         /// <summary>
-        /// lbl_valor control.
+        /// lblInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_valor;
+        protected global::System.Web.UI.WebControls.Label lblInfo;
 
         /// <summary>
-        /// btn_sair control.
+        /// Panel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_sair;
-
-        /// <summary>
-        /// Div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-
-        /// <summary>
-        /// lbl_cargo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cargo;
-
-        /// <summary>
-        /// ddl_opcoes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_opcoes;
-
-        /// <summary>
-        /// rptProdutos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProdutos;
+        protected global::System.Web.UI.WebControls.Panel Panel2;
     }
 }

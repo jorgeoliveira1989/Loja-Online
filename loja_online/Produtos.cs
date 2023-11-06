@@ -15,5 +15,6 @@ namespace loja_online
         public string Contenttype { get; set; }
         public string imagemSrc { get; set; }
         public int Quantidade {  get; set; }
+        public decimal preco_revenda { get; set; }
     }
 }

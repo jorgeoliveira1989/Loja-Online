@@ -25,7 +25,7 @@ namespace loja_online
             if (Session["username"] == null)
             {
                 // A sessão é nula, redireciona para index.aspx
-                Response.Redirect("index.aspx");
+                Response.Redirect("loja_online.aspx");
             }
            
             if (!IsPostBack)

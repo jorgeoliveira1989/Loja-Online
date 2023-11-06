@@ -14,6 +14,22 @@ namespace loja_online
         string query = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["cargo"] != null)
+            {
+                
+                lbl_cargo.Visible = true;
+                lbl_cargo.Text = (string)Session["cargo"];
+                string username = (string)Session["username"];
+                btn_sair.Visible = true;
+                lb_minhaConta.Visible = false;
+                lbl_nome.Visible = true;
+                lbl_nome.Text = "Bem-vindo/a, " + username;
+            }
+
+            string cargo = (string)Session["cargo"];
+
+            //Aqui agora para começar o código
+
             if (!IsPostBack)
             {
                 decimal valorTotal = 0;
@@ -32,19 +48,19 @@ namespace loja_online
 
             if (ddl_opcoes.SelectedItem.ToString() == "Nome Produto")
             {
-                query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY produto";
+                query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY produto";
             }
             else if (ddl_opcoes.SelectedItem.ToString() == "Preço Ascendente")
             {
-                query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY preco ASC";
+                query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY preco ASC";
             }
             else if (ddl_opcoes.SelectedItem.ToString() == "Preço Descendente")
             {
-                query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY preco DESC";
+                query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos WHERE ativo = 'True' ORDER BY preco DESC";
             }
             else
             {
-                query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos Where ativo = 'True'";
+                query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos Where ativo = 'True'";
             }
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
@@ -65,6 +81,12 @@ namespace loja_online
                 produto.produto = reader.GetString(1);
                 produto.designacao = reader.GetString(2);
                 produto.preco = reader.GetDecimal(3);
+
+                if (cargo == "Revendedor")
+                {
+                    produto.preco_revenda = reader.GetDecimal(4);
+                }
+
                 byte[] imagemBytes = (byte[])reader["foto"];
                 string contentType = reader.GetString(reader.GetOrdinal("ContentType"));
 
@@ -254,8 +276,19 @@ namespace loja_online
 
               int produtoID = Convert.ToInt32(argumentos[0]);
               string nomeProduto = argumentos[1];
-              decimal preco = Convert.ToDecimal(argumentos[2]);
+              decimal preco;
+
+            if (Session["cargo"] != null && Session["cargo"].ToString().Equals("Revendedor", StringComparison.OrdinalIgnoreCase))
+            {
+                preco = Convert.ToDecimal(argumentos[4]); // Usa o preco_revenda
+            }
+            else
+            {
+                preco = Convert.ToDecimal(argumentos[2]); // Usa o preco normal
+            }
+
               string imagemSrc = argumentos[3];
+              
 
               // Obtém o valor acumulado da sessão (ou 0 se for a primeira vez)
               decimal valorAcumulado = (Session["ValorAcumulado"] != null) ? (decimal)Session["ValorAcumulado"] : 0;
@@ -277,7 +310,7 @@ namespace loja_online
                   imagemSrc=imagemSrc,
                   id_produto = produtoID,
                   produto = nomeProduto,
-                  preco = preco, // Usando o preço do botão
+                  preco = preco,
                   Quantidade = 1 // Quantidade inicial
               };
 
@@ -296,6 +329,25 @@ namespace loja_online
 
               Session["Carrinho"] = carrinho;
 
+        }
+
+        protected void btn_sair_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("loja_online.aspx");
+            lb_minhaConta.Visible = true;
+            lbl_nome.Visible = false;
+        }
+
+        protected void lb_minhaConta_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
+
+        protected void lbl_nome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("conta.aspx");
         }
     }
 }

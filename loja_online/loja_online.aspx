@@ -47,11 +47,11 @@
                             </div>
 
                     <!-- Botão de Login/Minha Conta -->
-                            <a href="login.aspx" class="btn btn-link text-white text-decoration-none">
-                                <i class="fas fa-user fa-2x me-2 whatsapp-icon"></i>Login/Minha Conta
-                            </a>
+                            
+                            <i class="fas fa-user fa-2x me-2 whatsapp-icon"></i><asp:LinkButton ID="lb_minhaConta" class="btn btn-link text-white text-decoration-none" runat="server" OnClick="lb_minhaConta_Click">Login/Minha Conta</asp:LinkButton>
 
                     <!-- Ícone do WhatsApp e número de telefone -->
+&nbsp;<asp:LinkButton ID="lbl_nome" runat="server" OnClick="lbl_nome_Click" class="btn btn-link text-white text-decoration-none" Visible="False"></asp:LinkButton>
                             <div class="d-flex align-items-center">
                                 <i class="fab fa-whatsapp fa-2x whatsapp-icon me-2"></i>
                                 <label class="mb-0 text-white">910000000</label>
@@ -68,6 +68,7 @@
             <asp:LinkButton ID="lb_mais300" class="mx-3 custom-link" runat="server" OnClick="lb_mais300_Click"><b> > 300€</b></asp:LinkButton>
             <b><asp:Label ID="lbl_valor" runat="server" class="mx-3 custom-link" style="color: #ff0000;" Text="0,00€"></asp:Label></b>
             <a href="carrinho.aspx" class="mx-3 custom-link"><i class="fa-solid fa-cart-shopping" style="color: #ff0000;"></i></a>
+            <asp:Button ID="btn_sair" runat="server" Text="SAIR" class="btn btn-danger" Visible="false" OnClick="btn_sair_Click" Font-Bold="True" Font-Size="Medium" Width="75px" />
         </div>
         
         <!-- Adicionado carrossel com imagens -->
@@ -128,6 +129,7 @@
         <!-- Parte do repeater onde apresenta os produtos que estão ativos -->
         <div id="Div1" runat="server">
             <div class="container text-center">
+                <asp:Label ID="lbl_cargo" runat="server" Text=""></asp:Label>
                 <h1 style="color: rgb(255, 0, 0); font-weight: bold;">Produtos</h1>
                     <label __designer:mapid="196">
                         <b>Ordenar:</b> <asp:DropDownList ID="ddl_opcoes" runat="server" AutoPostBack="True">
@@ -148,8 +150,13 @@
                                 <div class="card-body">
                                     <h4 class="card-title"><b><%# Eval("produto") %></b></h4>
                                     <p class="card-text"><%# Eval("designacao") %></p>
-                                    <p class="card-text">Preço: <%# Eval("preco", "{0:C}") %></p>
-                                    <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar ao Carrinho" CssClass="btn btn-danger" OnClick="btnAdicionar_Click" CommandArgument='<%# Eval("id_produto") + "|" + Eval("produto") + "|" + Eval("Preco") + "|" + Eval("imagemSrc") %>' CausesValidation="False" />
+                                    <% if (Session["cargo"] != null && Session["cargo"].ToString().Equals("Revendedor", StringComparison.OrdinalIgnoreCase)) { %>
+                        <p class="card-text" style="text-decoration: line-through;">Preço: <%# Eval("preco", "{0:C}") %></p>
+                        <p class="card-text">Preço Revenda: <%# Eval("preco_revenda", "{0:C}") %></p>
+                    <% } else { %>
+                        <p class="card-text">Preço: <%# Eval("preco", "{0:C}") %></p>
+                    <% } %>
+                                    <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar ao Carrinho" CssClass="btn btn-danger" OnClick="btnAdicionar_Click" CommandArgument='<%# Eval("id_produto") + "|" + Eval("produto") + "|" + Eval("Preco") + "|" + Eval("imagemSrc") + "|" + Eval("preco_revenda") %>' CausesValidation="False" />
                                 </div>
                         </div>
                     </div>
@@ -161,7 +168,19 @@
         
 
     </form>       
-  
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/65492b72a84dd54dc4890f8a/1heit3dsh';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
