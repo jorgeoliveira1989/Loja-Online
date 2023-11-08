@@ -25,11 +25,30 @@ namespace loja_online
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 AtualizarCarrinho();
-
+                
             }
+
+            if (Session["username"] == null)
+            {
+                btnFinalizarEncomenda.Visible = false;
+                lbl_mail.Visible = false;
+                txt_email.Visible = false;
+                btnlogin.Visible = true;
+                btncriarconta.Visible = true;
+            }
+            else
+            {
+                btnFinalizarEncomenda.Visible = true;
+                lbl_mail.Visible = true;
+                txt_email.Visible = true;
+                btnlogin.Visible = false;
+                btncriarconta.Visible = false;
+            }
+
         }
 
         protected void rptCarrinho_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -107,6 +126,18 @@ namespace loja_online
             foreach (var item in ListaProdutosCarrinho)
             {
                 totalArtigos += item.Quantidade;
+
+            }
+
+            if (totalArtigos == 0)
+            {
+                txt_email.Enabled = false;
+                btnFinalizarEncomenda.Enabled = false;
+            }
+            else
+            {
+                txt_email.Enabled = true;
+                btnFinalizarEncomenda.Enabled = true;
             }
 
             return totalArtigos;
@@ -124,5 +155,20 @@ namespace loja_online
             Session["ValorAcumulado"] = valorAcumulado;
         }
 
+        protected void btnlogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
+
+        protected void btncriarconta_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("criar_conta.aspx");
+        }
+
+        protected void btn_avançar_Click(object sender, EventArgs e)
+        {
+            Panel1.Enabled = false;
+            Panel2.Visible = true;
+        }
     }
 }

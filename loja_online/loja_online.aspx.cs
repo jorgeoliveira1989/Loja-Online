@@ -12,6 +12,7 @@ namespace loja_online
     public partial class loja_online : System.Web.UI.Page
     {
         string query = "";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["cargo"] != null)
@@ -107,7 +108,7 @@ namespace loja_online
 
         protected void txt_pesquisar_TextChanged(object sender, EventArgs e)
         {
-            string query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE produto LIKE '%" + txt_pesquisar.Text + "%' And ativo = 'True'";
+            string query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos WHERE produto LIKE '%" + txt_pesquisar.Text + "%' And ativo = 'True'";
 
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
@@ -119,7 +120,7 @@ namespace loja_online
             myconn.Open();
 
             var reader = mycomm.ExecuteReader();
-
+            string cargo = (string)Session["cargo"];
             while (reader.Read())
             {
                 Produtos produto = new Produtos();
@@ -128,6 +129,11 @@ namespace loja_online
                 produto.produto = reader.GetString(1);
                 produto.designacao = reader.GetString(2);
                 produto.preco = reader.GetDecimal(3);
+                if (cargo == "Revendedor")
+                {
+                    produto.preco_revenda = reader.GetDecimal(4);
+                }
+
                 byte[] imagemBytes = (byte[])reader["foto"];
                 string contentType = reader.GetString(reader.GetOrdinal("ContentType"));
 
@@ -148,7 +154,7 @@ namespace loja_online
 
         protected void Lb_menos100_Click(object sender, EventArgs e)
         {
-            string query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE preco < 100 AND ativo = 'True'";
+            string query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos WHERE preco < 100 AND ativo = 'True'";
 
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
@@ -160,7 +166,7 @@ namespace loja_online
             myconn.Open();
 
             var reader = mycomm.ExecuteReader();
-
+            string cargo = (string)Session["cargo"];
             while (reader.Read())
             {
                 Produtos produto = new Produtos();
@@ -169,6 +175,11 @@ namespace loja_online
                 produto.produto = reader.GetString(1);
                 produto.designacao = reader.GetString(2);
                 produto.preco = reader.GetDecimal(3);
+                if (cargo == "Revendedor")
+                {
+                    produto.preco_revenda = reader.GetDecimal(4);
+                }
+
                 byte[] imagemBytes = (byte[])reader["foto"];
                 string contentType = reader.GetString(reader.GetOrdinal("ContentType"));
 
@@ -189,7 +200,7 @@ namespace loja_online
 
         protected void lb_entre100e300_Click(object sender, EventArgs e)
         {
-            string query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE preco >= 100 AND preco <= 300 AND ativo = 'True'";
+            string query = "SELECT id_produto,produto, designacao, preco, preco_revenda, foto, contenttype FROM produtos WHERE preco >= 100 AND preco <= 300 AND ativo = 'True'";
 
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
@@ -201,7 +212,7 @@ namespace loja_online
             myconn.Open();
 
             var reader = mycomm.ExecuteReader();
-
+            string cargo = (string)Session["cargo"];
             while (reader.Read())
             {
                 Produtos produto = new Produtos();
@@ -210,6 +221,10 @@ namespace loja_online
                 produto.produto = reader.GetString(1);
                 produto.designacao = reader.GetString(2);
                 produto.preco = reader.GetDecimal(3);
+                if (cargo == "Revendedor")
+                {
+                    produto.preco_revenda = reader.GetDecimal(4);
+                }
                 byte[] imagemBytes = (byte[])reader["foto"];
                 string contentType = reader.GetString(reader.GetOrdinal("ContentType"));
 
@@ -230,7 +245,7 @@ namespace loja_online
 
         protected void lb_mais300_Click(object sender, EventArgs e)
         {
-            string query = "SELECT id_produto,produto, designacao, preco, foto, contenttype FROM produtos WHERE preco > 300 AND ativo = 'True'";
+            string query = "SELECT id_produto,produto, designacao, preco,preco_revenda, foto, contenttype FROM produtos WHERE preco > 300 AND ativo = 'True'";
 
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
@@ -242,7 +257,7 @@ namespace loja_online
             myconn.Open();
 
             var reader = mycomm.ExecuteReader();
-
+            string cargo = (string)Session["cargo"];
             while (reader.Read())
             {
                 Produtos produto = new Produtos();
@@ -251,6 +266,10 @@ namespace loja_online
                 produto.produto = reader.GetString(1);
                 produto.designacao = reader.GetString(2);
                 produto.preco = reader.GetDecimal(3);
+                if (cargo == "Revendedor")
+                {
+                    produto.preco_revenda = reader.GetDecimal(4);
+                }
                 byte[] imagemBytes = (byte[])reader["foto"];
                 string contentType = reader.GetString(reader.GetOrdinal("ContentType"));
 

@@ -19,6 +19,16 @@
               max-width: none;
               height: 600px;
           }
+          .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333; /* Cor de fundo do footer */
+            color: #fff; /* Cor do texto */
+            text-align: center;
+            padding: 10px; /* Espaçamento interno do footer */
+          }
          
       </style>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,19 +52,20 @@
 
                     <!-- Caixa de pesquisa centralizada -->
                     <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
-                        <asp:TextBox ID="txt_pesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar produtos"></asp:TextBox>
+                        <asp:TextBox ID="txt_pesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar produtos" OnTextChanged="txt_pesquisar_TextChanged"></asp:TextBox>
                         <div class="input-group-append">
-                            <asp:Button ID="btn_procurar" runat="server" Text="Pesquisar" CssClass="btn btn-danger" />
+                            <asp:Button ID="btn_procurar" runat="server" Text="Pesquisar" CssClass="btn btn-danger" OnClick="btn_procurar_Click" />
                         </div>
                     </div>
 
-                    <!-- Botão de Login/Minha Conta -->
-                    <a href="login.aspx" class="btn btn-link text-white text-decoration-none">
-                        <i class="fas fa-user fa-2x me-2 whatsapp-icon"></i>Login/Minha Conta
-                    </a>
+                                        <!-- Botão de Login/Minha Conta -->
+                            
+                            <i class="fas fa-user fa-2x me-2 whatsapp-icon"></i><asp:LinkButton ID="lb_minhaConta" class="btn btn-link text-white text-decoration-none" runat="server" OnClick="lb_minhaConta_Click">Login/Minha Conta</asp:LinkButton>
 
                     <!-- Ícone do WhatsApp e número de telefone -->
-                    <div class="d-flex align-items-center">
+                      &nbsp;<asp:LinkButton ID="lbl_nome" runat="server" OnClick="lbl_nome_Click" class="btn btn-link text-white text-decoration-none" Visible="False"></asp:LinkButton>
+                            <div class="d-flex align-items-center">
+       
                         <i class="fab fa-whatsapp fa-2x whatsapp-icon me-2"></i>
                         <label class="mb-0 text-white">910000000</label>
                     </div>
@@ -66,12 +77,19 @@
 
  <div class="bg-gray text-center py-3 h-105">
      <a href="loja_online.aspx" class="mx-3 custom-link"><i class="fa-solid fa-house" style="color: #ff0000;"></i> <b>HOME</b></a>
+     <asp:LinkButton ID="Lb_menos100" class="mx-3 custom-link" runat="server" OnClick="Lb_menos100_Click"><b> < 100€</b></asp:LinkButton>
+     <asp:LinkButton ID="lb_entre100e300" class="mx-3 custom-link" runat="server" OnClick="lb_entre100e300_Click"><b>100€ - 300€</b></asp:LinkButton>
+     <asp:LinkButton ID="lb_mais300" class="mx-3 custom-link" runat="server" OnClick="lb_mais300_Click"><b> > 300€</b></asp:LinkButton>
  </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
     </form>
+
+    <div class="footer">
+        @lojaOnline - Teste de avaliação cet74
+    </div>
+
 </body>
 </html>

@@ -30,7 +30,7 @@
                             <asp:Button ID="btn_entrar" runat="server" Text="Login" class="btn btn-danger btn-lg w-100" OnClick="btn_entrar_Click" />
                         <br />
                         <br />
-                            <asp:LinkButton ID="lbtn_recuperarPasse" runat="server" PostBackUrl="~/index.aspx">Recuperar Password?</asp:LinkButton>
+                            <asp:LinkButton ID="lbtn_recuperarPasse" runat="server" PostBackUrl="~/recuperarpasse.aspx">Recuperar Password?</asp:LinkButton>
                         <br />
                         <br />
                             <a href="criar_conta.aspx" class="btn btn-primary btn-lg w-100">Criar Conta</a>

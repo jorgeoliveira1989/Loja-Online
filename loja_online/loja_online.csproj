@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -90,10 +92,11 @@
     <Content Include="image\image3.jpg" />
     <Content Include="image\Revendedor.jpg" />
     <Content Include="loja_online.aspx" />
+    <Content Include="recuperarpasse.aspx" />
+    <Content Include="rec_passe.aspx" />
     <Content Include="visualizar_admins.aspx" />
     <Content Include="visualizar_clientes.aspx" />
     <Content Include="visualizar_produtos.aspx" />
-    <Content Include="zzz-backoffice1.aspx" />
     <Content Include="css\all.css" />
     <Content Include="css\all.min.css" />
     <Content Include="css\bootstrap-grid.css" />
@@ -2298,6 +2301,20 @@
       <DependentUpon>loja_online.aspx</DependentUpon>
     </Compile>
     <Compile Include="Produtos.cs" />
+    <Compile Include="recuperarpasse.aspx.cs">
+      <DependentUpon>recuperarpasse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recuperarpasse.aspx.designer.cs">
+      <DependentUpon>recuperarpasse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rec_passe.aspx.cs">
+      <DependentUpon>rec_passe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rec_passe.aspx.designer.cs">
+      <DependentUpon>rec_passe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="visualizar_admins.aspx.cs">
       <DependentUpon>visualizar_admins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2318,13 +2335,6 @@
     </Compile>
     <Compile Include="visualizar_produtos.aspx.designer.cs">
       <DependentUpon>visualizar_produtos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="zzz-backoffice1.aspx.cs">
-      <DependentUpon>zzz-backoffice1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="zzz-backoffice1.aspx.designer.cs">
-      <DependentUpon>zzz-backoffice1.aspx</DependentUpon>
     </Compile>
     <Compile Include="backoffice_top_side.Master.cs">
       <DependentUpon>backoffice_top_side.Master</DependentUpon>

@@ -165,9 +165,16 @@
         </div>
             </div>  
         </div>
-        
+        <div class="footer">
+            <div class="bg-dark text-white text-center py-3">
+                @lojaOnline - Teste de avaliação cet74
+            </div>
+       </div>
 
-    </form>       
+
+    </form>   
+    
+
   <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
