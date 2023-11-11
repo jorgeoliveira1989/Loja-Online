@@ -28,7 +28,7 @@ namespace loja_online
             }
 
             string cargo = (string)Session["cargo"];
-
+           
             //Aqui agora para começar o código
 
             if (!IsPostBack)

@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/cabecalho_rodapé.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="loja_online.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+     <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mt-5">
@@ -38,11 +42,94 @@
                         <br />
                             <asp:Label ID="lbl_info" runat="server" Font-Bold="True" ForeColor="Red" Font-Size="Large"></asp:Label>
                         </div>
-                    
+                              <div id="buttonDiv"></div>
+                    <br />
+                     <p id="fullName"></p> 
+                    <br />
+                   <p id="email"></p> 
+                        <br />  
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+  <script>
+      function parseJwt(token) {
+          try {
+              const base64Url = token.split('.')[1];
+              const base64 = base64Url.replace('-', '+').replace('_', '/');
+              const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => {
+                  return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+              }).join(''));
+
+              return JSON.parse(jsonPayload);
+          } catch (e) {
+              return null;
+          }
+      }
+
+      function handleCredentialResponse(response) {
+          const data = parseJwt(response.credential);
+          console.log(data);
+
+          if (data && data.name) {
+              const fullName = data.name;
+              const email = data.email;
+
+              // Armazena os valores na sessão
+              sessionStorage.setItem('FullName', fullName);
+              sessionStorage.setItem('UserEmail', email);
+
+              // Atualiza o conteúdo na página
+              document.getElementById('fullName').textContent = fullName;
+              document.getElementById('email').textContent = email;
+
+              // Redireciona para a página após o login
+              window.location.href = 'loja_online.aspx'; // Substitua com a página que deseja redirecionar.
+          }
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+          var FullName = sessionStorage.getItem('FullName');
+          var UserEmail = sessionStorage.getItem('UserEmail');
+
+          
+          if (FullName && UserEmail) {
+              // As variáveis de sessão estão definidas, o usuário está autenticado.
+              // Redirecione-o para a página adequada.
+              window.location.href = 'loja_online.aspx'; // Substitua com a página que deseja redirecionar.
+          }
+      });
+
+/*
+      function responseCallBack(response) {
+          const data = jwt_decode(response.credential);
+          console.log(data)
+          sub.textContent = data.sub
+          fullName.textContent = data.name
+          given_name.textContent = data.given_name
+          family_name.textContent = data.family_name
+          email.textContent = data.email
+          picture.setAttribute("src", data.picture)
+      }
+*/
+      window.onload = function () {
+          google.accounts.id.initialize({
+              client_id: "939579512807-r8jf51ee2l8ntddgssh6tq5jmb3pfgfm.apps.googleusercontent.com",
+              callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+              buttonDiv, {
+              theme: "outline",
+              // theme: "filled_black",
+              // size: "small",
+              size: "large",
+              // shape: "pill",
+              // logo_alignment: "left"
+          }
+          );
+      }
+  </script>
 
 </asp:Content>

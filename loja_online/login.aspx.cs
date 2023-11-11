@@ -14,8 +14,18 @@ namespace loja_online
     public partial class login : System.Web.UI.Page
     {
         string cargo = "";
+       
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["FullName"] != null && Session["UserEmail"] != null)
+            {
+                string fullName = Session["FullName"].ToString();
+                string userEmail = Session["UserEmail"].ToString();
+
+
+                // Agora você pode usar 'fullName' e 'userEmail' para autenticar o usuário no seu site.
+                //Response.Redirect("loja_online.aspx");
+            }
 
         }
 
@@ -23,6 +33,7 @@ namespace loja_online
         {
             Session["username"] = txt_user.Text;
             Session["cargo"] = ddl_tipo.Text;
+            
 
             cargo = ddl_tipo.SelectedItem.ToString();
 

@@ -58,14 +58,39 @@
                                <div class="card">
                                    <div class="card-header bg-success text-white font-weight-bold d-flex justify-content-between">
                                        <h3 class="text-center">Ver Compras</h3>
+                                       <asp:DropDownList ID="ddl_data" runat="server" DataTextField="data_venda" DataValueField="data_venda" AutoPostBack="True" OnSelectedIndexChanged="ddl_data_SelectedIndexChanged"></asp:DropDownList>
+                                       <br />
+                                       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lojaOnline_aulaTesteConnectionString %>"
+                                            SelectCommand="SELECT DISTINCT [data_venda] FROM [vendas] WHERE [username] = @username">
+                                                <SelectParameters>
+                                                    <asp:Parameter Name="username" Type="String" />
+                                                    
+                                                </SelectParameters>
+                                        </asp:SqlDataSource>
+                                       <br />
                                    </div>
-                                    DFSDFSDF<br />
-                                    DF<br />
-                                    SDF<br />
-                                    SD<br />
-                                    FSD<br />
-                                    F
-                               </div>
+                                   <asp:Repeater ID="rpt_vendas" runat="server">
+                                       <HeaderTemplate>
+                                           <table border="1" width="632">
+                                               <tr>
+                                                    <td><b>PRODUTO</b></td>
+                                                    <td><b>QUANTIDADE</b></td>
+                                                    <td><b>VENDA</b></td>
+                                               </tr>
+                                       </HeaderTemplate>
+                                       <ItemTemplate>
+                                           <tr>
+                                                 <td><%# Eval("produto")%></td>
+                                                 <td><%# Eval("quantidade")%></td>
+                                                 <td><%# Eval("data_venda")%></td>
+                                           </tr>
+                                       </ItemTemplate>
+                                       <FooterTemplate>
+                                           </table>
+                                       </FooterTemplate>
+                                   </asp:Repeater>
+                                    </div>
+                               <asp:Label ID="lblSemCompras" runat="server" Text="Label" Visible="false"></asp:Label>
                            </div>
                        </div>
                   </asp:Panel>

@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Security.Cryptography;
+using System.Collections;
+using static loja_online.conta;
 
 namespace loja_online
 {
@@ -21,6 +23,12 @@ namespace loja_online
                 Response.Redirect("loja_online.aspx");
             }
 
+            if (!IsPostBack)
+            {
+                // Carrega a DropDownList apenas se não for uma solicitação pós-volta.
+                CarregarDropDownList();
+            }
+
         }
         protected void btn_alterarSenha_Click(object sender, EventArgs e)
         {
@@ -32,7 +40,62 @@ namespace loja_online
         {
             Panel2.Visible = true;
             Panel1.Visible = false;
+
+            string user = (string)Session["username"];
+
+            string query = "Select id_venda,username,produto,quantidade,data_venda from vendas where '" +user+ "'=username";
+
+            SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
+
+            SqlCommand mycomm = new SqlCommand(query, myconn);
+
+            if (query == null)
+            {
+                lblSemCompras.Visible = true;
+                lblSemCompras.Text = "Zero compras efetuadas até ao momento.";
+            }
+            else
+            {
+
+                List<Vendas> lst_vendas = new List<Vendas>();
+
+                myconn.Open();
+
+                var reader = mycomm.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    Vendas venda = new Vendas();
+
+                    venda.id_vendas = reader.GetInt32(0);
+                    venda.username = reader.GetString(1);
+                    venda.produto = reader.GetString(2);
+                    venda.quantidade = reader.GetInt32(3);
+                    venda.data_venda = reader.GetDateTime(4);
+
+                    lst_vendas.Add(venda);
+                }
+
+                myconn.Close();
+
+
+            
+                rpt_vendas.DataSource = lst_vendas;
+                rpt_vendas.DataBind();
+            }
+
         }
+
+        public class Vendas{
+
+            public int id_vendas {  get; set; }
+            public string username {  get; set; }
+            public string produto {  get; set; }
+            public int quantidade { get; set; }
+            public DateTime data_venda { get; set; }
+        }
+    
 
         protected void btn_Sair_Click(object sender, EventArgs e)
         {
@@ -136,6 +199,27 @@ namespace loja_online
             enc = enc.Replace("/", "JLJLJL");
             enc = enc.Replace("\\", "IOIOIO");
             return enc;
+        }
+        private void CarregarDropDownList()
+        {
+            if (Session["username"] != null)
+            {
+                ddl_data.DataSourceID = null; // Remover a fonte de dados existente para permitir a alteração do DataSourceID
+                SqlDataSource1.SelectParameters["username"].DefaultValue = Session["username"].ToString();
+                ddl_data.DataSource = SqlDataSource1;
+                ddl_data.DataBind();
+            }
+        }
+
+        protected void ddl_data_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Atualizar o comando SQL com base na data escolhida
+            SqlDataSource1.SelectCommand = "SELECT * FROM vendas WHERE data_venda = @data_venda";
+            SqlDataSource1.SelectParameters["data_venda"].DefaultValue = ddl_data.SelectedValue;
+
+            // Recarregar os dados no Repeater
+            rpt_vendas.DataBind();
+
         }
     }
 }

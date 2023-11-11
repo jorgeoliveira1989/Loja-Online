@@ -18,8 +18,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><%# Eval("produto") %></h5>
-                            <p class="card-text">Preço: <%# Eval("preco", "{0:C}") %></p>
+                            <h5><asp:Label ID="lblproduto" class="card-title" runat="server" Text='<%# Eval("produto") %>'></asp:Label></h5>
+                            <asp:Label ID="lblpreco" class="card-text" runat="server" Text='<%# Eval("preco", "{0:C}") %>'></asp:Label>
                             <div class="input-group">
                                 <asp:TextBox ID="txtQuantidade" runat="server" Text='<%# Eval("Quantidade") %>' CssClass="form-control" />
                                 <span class="input-group-btn">
@@ -35,7 +35,8 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
-
+<br />
+<br />
     <!-- Resumo da Encomenda -->
     <div class="card mt-3 float-right"/>
     <div class="card-body"/>
@@ -49,6 +50,8 @@
             <asp:Button ID="btn_avançar" runat="server" Text="Avançar &gt;" OnClick="btn_avançar_Click" CssClass="btn btn-danger" Font-Size="Medium" />
             <br />
         </asp:Panel>
+         <br />
+            <br />
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                     <asp:Panel ID="Panel2" runat="server" Visible="False">
@@ -56,12 +59,15 @@
                         <br />
                          <asp:TextBox ID="txt_email" runat="server" class="form-control" Width="320px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_email" ErrorMessage="Precisa de Preencher com o seu email" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator> <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_email" ErrorMessage="Precisa de colocar um email valído" Font-Bold="True" ForeColor="Red" ValidationExpression="^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$">*</asp:RegularExpressionValidator>
                         <br />
-                        <br />
-                        <asp:Button ID="btnFinalizarEncomenda" runat="server" Text="Finalizar Encomenda" CssClass="btn btn-danger" />
-                        <asp:Button ID="btnlogin" runat="server" Text="Login"  CssClass="btn btn-primary" OnClick="btnlogin_Click"  />
-                        <asp:Button ID="btncriarconta" runat="server" Text="Criar Conta" CssClass="btn btn-success" OnClick="btncriarconta_Click"/>
-                        <br />
+                        <asp:Button ID="btnFinalizarEncomenda" runat="server" Text="Finalizar Encomenda" CssClass="btn btn-danger" OnClick="btnFinalizarEncomenda_Click" />
+                        <asp:Button ID="btnlogin" runat="server" Text="Login"  CssClass="btn btn-danger" OnClick="btnlogin_Click"  />
+                        <asp:Button ID="btncriarconta" runat="server" Text="Criar Conta" CssClass="btn btn-primary" OnClick="btncriarconta_Click"/>
+                        <br /> 
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" Font-Bold="True" ForeColor="Red" />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
                     </asp:Panel>
             </ContentTemplate>
    </asp:UpdatePanel>

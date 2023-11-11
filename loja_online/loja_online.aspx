@@ -163,6 +163,13 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+                <!-- Botões de paginação -->
+                <div class="text-center">
+                    <button id="prevPage" class="btn btn-danger">Página Anterior</button>
+                    <button id="nextPage" class="btn btn-danger">Próxima Página</button>
+                </div>
+                <br />
+                <br />
             </div>  
         </div>
         <div class="footer">
@@ -188,6 +195,68 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+<!-- JS para a páginação-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const products = document.querySelectorAll('.productCard');
+        const prevPageButton = document.getElementById('prevPage');
+        const nextPageButton = document.getElementById('nextPage');
+        const productsPerPage = 12;
+        let currentPage = 1;
+
+        function showProducts() {
+            products.forEach((product, index) => {
+                if (index >= (currentPage - 1) * productsPerPage && index < currentPage * productsPerPage) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function updateButtons() {
+            if (currentPage === 1) {
+                prevPageButton.disabled = true;
+            } else {
+                prevPageButton.disabled = false;
+            }
+
+            if (currentPage * productsPerPage >= products.length) {
+                nextPageButton.disabled = true;
+            } else {
+                nextPageButton.disabled = false;
+            }
+        }
+
+        prevPageButton.addEventListener('click', function () {
+            if (currentPage > 1) {
+                currentPage--;
+                showProducts();
+                updateButtons();
+            }
+        });
+
+        nextPageButton.addEventListener('click', function () {
+            if (currentPage * productsPerPage < products.length) {
+                currentPage++;
+                showProducts();
+                updateButtons();
+            }
+        });
+
+        showProducts();
+        updateButtons();
+    });
+</script>
+
+// Adicione o jQuery na sua página, se ainda não estiver carregado
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!--Guardar produtos ao carregar no devido botão-->
+
+
+
 </body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
