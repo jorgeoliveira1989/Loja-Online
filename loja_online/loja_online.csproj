@@ -194,10 +194,9 @@
     <Content Include="loja_online.aspx" />
     <Content Include="recuperarpasse.aspx" />
     <Content Include="rec_passe.aspx" />
-    <Content Include="teste.aspx" />
     <Content Include="visualizar_admins.aspx" />
     <Content Include="visualizar_clientes.aspx" />
-    <Content Include="visualizar_encomendas.aspx" />
+    <Content Include="visualizar_vendas.aspx" />
     <Content Include="visualizar_produtos.aspx" />
     <Content Include="css\all.css" />
     <Content Include="css\all.min.css" />
@@ -237,7 +236,7 @@
     <Content Include="image\entrega-rapida.png" />
     <Content Include="image\escudo.png" />
     <Content Include="image\relogio.png" />
-    <Content Include="index.aspx" />
+    <Content Include="zzzzz-apagar-index.aspx" />
     <Content Include="js\all.js" />
     <Content Include="js\all.min.js" />
     <Content Include="js\bootstrap.bundle.js" />
@@ -2417,13 +2416,6 @@
     <Compile Include="rec_passe.aspx.designer.cs">
       <DependentUpon>rec_passe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="teste.aspx.cs">
-      <DependentUpon>teste.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="teste.aspx.designer.cs">
-      <DependentUpon>teste.aspx</DependentUpon>
-    </Compile>
     <Compile Include="visualizar_admins.aspx.cs">
       <DependentUpon>visualizar_admins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2438,12 +2430,12 @@
     <Compile Include="visualizar_clientes.aspx.designer.cs">
       <DependentUpon>visualizar_clientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="visualizar_encomendas.aspx.cs">
-      <DependentUpon>visualizar_encomendas.aspx</DependentUpon>
+    <Compile Include="visualizar_vendas.aspx.cs">
+      <DependentUpon>visualizar_vendas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="visualizar_encomendas.aspx.designer.cs">
-      <DependentUpon>visualizar_encomendas.aspx</DependentUpon>
+    <Compile Include="visualizar_vendas.aspx.designer.cs">
+      <DependentUpon>visualizar_vendas.aspx</DependentUpon>
     </Compile>
     <Compile Include="visualizar_produtos.aspx.cs">
       <DependentUpon>visualizar_produtos.aspx</DependentUpon>
@@ -2466,12 +2458,12 @@
     <Compile Include="cabecalho_rodapé.Master.designer.cs">
       <DependentUpon>cabecalho_rodapé.Master</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="zzzzz-apagar-index.aspx.cs">
+      <DependentUpon>zzzzz-apagar-index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="zzzzz-apagar-index.aspx.designer.cs">
+      <DependentUpon>zzzzz-apagar-index.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

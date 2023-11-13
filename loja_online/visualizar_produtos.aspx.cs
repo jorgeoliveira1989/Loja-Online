@@ -24,7 +24,7 @@ namespace loja_online
             if (Session["username"] == null)
             {
                 // A sessão é nula, redireciona para loja_online.aspx
-                Response.Redirect("index.aspx");
+                Response.Redirect("loja_online.aspx");
             }
 
             SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);

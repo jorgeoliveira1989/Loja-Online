@@ -20,8 +20,8 @@ namespace loja_online
         {
             if (Session["username"] == null)
             {
-                // A sessão é nula, redireciona para index.aspx
-                Response.Redirect("index.aspx");
+                // A sessão é nula, redireciona para loja_online.aspx
+                Response.Redirect("loja_online.aspx");
             }
         }
 

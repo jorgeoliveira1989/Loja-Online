@@ -14,7 +14,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container d-flex justify-content-center align-items-center" style="height: 60vh;">
+    <div class="container d-flex justify-content-center align-items-center">
         <div class="p-4 border rounded bg-light">
             <h5>Tipo de Conta</h5>
             <asp:DropDownList ID="ddl_tipoConta" runat="server" AutoPostBack="True" CssClass="form-control mb-3" OnSelectedIndexChanged="ddl_tipoConta_SelectedIndexChanged">

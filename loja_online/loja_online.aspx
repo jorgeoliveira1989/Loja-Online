@@ -34,8 +34,9 @@
                         <div class="d-flex justify-content-between align-items-center">
                     <!-- Ícones de redes sociais na esquerda -->
                             <div class="d-flex">
-                                <a href="#" class="ms-2"><i class="fab fa-facebook fa-2x text-white"></i></a>
-                                <a href="#" class="ms-2"><i class="fab fa-twitter fa-2x text-white"></i></a>
+                                <a href="#" class="ms-2"><i class="fa-brands fa-square-facebook fa-2x text-white"></i></a>
+                                <a href="#" class="ms-2"><i class="fab fa-square-instagram fa-2x text-white"></i></a>
+                                <a href="#" class="ms-2"><i class="fab fa-square-x-twitter fa-2x text-white"></i></a>
                             </div>
 
                     <!-- Caixa de pesquisa centralizada -->
@@ -250,7 +251,6 @@ s0.parentNode.insertBefore(s1,s0);
     });
 </script>
 
-// Adicione o jQuery na sua página, se ainda não estiver carregado
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
     <!--Guardar produtos ao carregar no devido botão-->

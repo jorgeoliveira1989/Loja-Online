@@ -16,20 +16,47 @@ namespace loja_online
         {
             if (Session["username"] == null)
             {
-                // A sessão é nula, redireciona para index.aspx
-                Response.Redirect("index.aspx");
+                // A sessão é nula, redireciona para loja_online.aspx
+                Response.Redirect("loja_online.aspx");
+            }
+
+            if (ddl_id.Items.Count == 1)
+            {
+                btn_desativar_cliente.Enabled = false;
+            }
+            else
+            {
+                btn_desativar_cliente.Enabled = true;
             }
         }
 
         protected void ddl_id_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
+            if (ddl_id.Items.Count == 1)
+            {
+                btn_desativar_cliente.Enabled = false;
+            }
+            else
+            {
+                btn_desativar_cliente.Enabled = true;
+            }
 
-            // Chamar a stored procedure para obter o nome
-            string cliente = ObterNomePorID(idSelecionado); // Método para chamar a stored procedure
+            if (ddl_id.SelectedValue.ToString() == "-----")
+            {
+                lbl_cliente.Text = "";
+                btn_desativar_cliente.Enabled = false;
+            }
+            else
+            {
 
-            // Preencher a TextBox com o nome
-            lbl_cliente.Text = cliente;
+                int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
+
+                // Chamar a stored procedure para obter o nome
+                string cliente = ObterNomePorID(idSelecionado); // Método para chamar a stored procedure
+
+                // Preencher a TextBox com o nome
+                lbl_cliente.Text = cliente;
+            }
         }
 
         private string ObterNomePorID(int id)

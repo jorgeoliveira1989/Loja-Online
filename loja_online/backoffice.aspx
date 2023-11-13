@@ -101,7 +101,7 @@
                 <div class="card">
                     <div class="card-header bg-warning text-white font-weight-bold d-flex justify-content-between">
                         <span>
-                            <a href="visualizar_encomendas.aspx" class="text-white text-decoration-none d-block mb-2 m-2">
+                            <a href="visualizar_vendas.aspx" class="text-white text-decoration-none d-block mb-2 m-2">
                                 <asp:Label ID="lbltotal_encomendas" runat="server" Text="Total de Vendas" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                             </a> 
                         </span>

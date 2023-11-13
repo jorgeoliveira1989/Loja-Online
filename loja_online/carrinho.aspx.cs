@@ -188,6 +188,7 @@ namespace loja_online
 
         protected void btnFinalizarEncomenda_Click(object sender, EventArgs e)
         {
+
             string caminhoPathPDFS = ConfigurationManager.AppSettings["PathPDFS"];
 
             string PdfTemplate = caminhoPathPDFS + "Template\\template.pdf";
@@ -257,6 +258,11 @@ namespace loja_online
 
                 servidor.Send(email);
 
+            lbl_info.Text = "Compra Efetuada com sucesso!! Verifique o comprovativo enviado para o seu email...";
+
+            finalCompra();
+
+
         }
 
         private void guardaDetalhesTabelaVendas()
@@ -289,6 +295,19 @@ namespace loja_online
 
                 connection.Close();
             }
+        }
+
+        private void finalCompra()
+        {
+            // Limpar sessões
+            Session.Remove("Carrinho");
+            Session.Remove("ValorTotal");
+            Session.Remove("ValorAcumulado");
+            Session.Remove("CompraEfetuada");
+
+            // Redirecionar para a loja_online
+            Response.Redirect("loja_online.aspx");
+
         }
 
         public static string EncryptString(string Message)

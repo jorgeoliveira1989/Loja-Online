@@ -9,7 +9,9 @@
     <div>
         <div class="mb-3">
             <label for="txtid" class="form-label">ID</label>
-            <asp:DropDownList ID="ddl_id" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataValueField="id_produto" OnSelectedIndexChanged="ddl_id_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="ddl_id" runat="server" AppendDataBoundItems="true" AutoPostBack="True" DataSourceID="SqlDataSource1" DataValueField="id_produto" OnSelectedIndexChanged="ddl_id_SelectedIndexChanged">
+                <asp:ListItem>-----</asp:ListItem>
+            </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lojaOnline_aulaTesteConnectionString %>" SelectCommand="SELECT [id_produto] FROM [produtos] WHERE ([ativo] = @ativo)">
                 <SelectParameters>
                     <asp:Parameter DefaultValue="False" Name="ativo" Type="Boolean" />

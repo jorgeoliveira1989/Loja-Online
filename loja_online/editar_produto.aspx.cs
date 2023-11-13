@@ -17,8 +17,17 @@ namespace loja_online
         {
             if (Session["username"] == null)
             {
-                // A sessão é nula, redireciona para index.aspx
-                Response.Redirect("index.aspx");
+                // A sessão é nula, redireciona para loja_online
+                Response.Redirect("loja_online.aspx");
+            }
+
+            if (ddl_id.Items.Count == 1)
+            {
+                btn_editar_produto.Enabled = false;
+            }
+            else
+            {
+                btn_editar_produto.Enabled = true;
             }
         }
 
@@ -80,20 +89,41 @@ namespace loja_online
 
         protected void ddl_id_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
-
-            // Obter dados da base de dados com a stored procedure
-            Tuple<string, string, string, decimal, int> dados = ObterDadosPorID(idSelecionado);
-
-            if (dados != null)
+            if (ddl_id.Items.Count == 1)
             {
-                txt_produto.Text = dados.Item1;
-                txt_designacao.Text = dados.Item2;
-                txt_descricao.Text = dados.Item3;
-                txt_preco.Text = dados.Item4.ToString();
-                txt_quantidade.Text = dados.Item5.ToString();
+               btn_editar_produto.Enabled = false;
+            }
+            else
+            {
+                btn_editar_produto.Enabled = true;
             }
 
+            if (ddl_id.SelectedValue.ToString() == "-----")
+            {
+                txt_produto.Text = "";
+                txt_descricao.Text = "";
+                txt_designacao.Text = "";
+                txt_preco.Text = "";
+                txt_quantidade.Text = "";
+                btn_editar_produto.Enabled = false;
+            }
+            else
+            {
+
+                int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
+
+                // Obter dados da base de dados com a stored procedure
+                Tuple<string, string, string, decimal, int> dados = ObterDadosPorID(idSelecionado);
+
+                if (dados != null)
+                {
+                    txt_produto.Text = dados.Item1;
+                    txt_designacao.Text = dados.Item2;
+                    txt_descricao.Text = dados.Item3;
+                    txt_preco.Text = dados.Item4.ToString();
+                    txt_quantidade.Text = dados.Item5.ToString();
+                }
+            }
         }
 
         private Tuple<string, string, string, decimal, int> ObterDadosPorID(int id)

@@ -17,7 +17,8 @@
         <div>
             <div class="mb-3">
                 <label for="txtid" class="form-label">ID</label>
-                <asp:DropDownList ID="ddl_id" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_id_SelectedIndexChanged" DataSourceID="SqlDataSource1" DataTextField="id_produto" DataValueField="id_produto">
+                <asp:DropDownList ID="ddl_id" AppendDataBoundItems="true" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_id_SelectedIndexChanged" DataSourceID="SqlDataSource1" DataTextField="id_produto" DataValueField="id_produto">
+                <asp:ListItem>-----</asp:ListItem>
                 </asp:DropDownList>
 
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lojaOnline_aulaTesteConnectionString %>" SelectCommand="SELECT [id_produto] FROM [produtos]"></asp:SqlDataSource>

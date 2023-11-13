@@ -21,27 +21,53 @@ namespace loja_online
                 // A sessão é nula, redireciona para loja_online.aspx
                 Response.Redirect("loja_online.aspx");
             }
-
+            if (ddl_id.Items.Count == 1)
+            {
+                btn_alterar_tipo_conta.Enabled = false;
+            }
+            else
+            {
+                btn_alterar_tipo_conta.Enabled = true;
+            }
 
         }
 
         protected void ddl_id_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
-
-            // Chamar a stored procedure para obter o nome
-            string tipoConta = ObterNomePorID(idSelecionado); // Método para chamar a stored procedure
-
-            // Preencher a TextBox com o nome
-            lbl_tipoConta.Text = tipoConta;
-
-            if(lbl_tipoConta.Text == "Cliente")
+            if (ddl_id.Items.Count == 1)
             {
-                lbl_altera_conta.Text = "Revendedor";
+                btn_alterar_tipo_conta.Enabled = false;
             }
             else
             {
-                lbl_altera_conta.Text = "Cliente";
+                btn_alterar_tipo_conta.Enabled = true;
+            }
+
+            if (ddl_id.SelectedValue.ToString() == "-----")
+            {
+                lbl_altera_conta.Text = "";
+                lbl_tipoConta.Text = "";
+                btn_alterar_tipo_conta.Enabled = false;
+            }
+            else
+            {
+
+                int idSelecionado = Convert.ToInt32(ddl_id.SelectedValue);
+
+                // Chamar a stored procedure para obter o nome
+                string tipoConta = ObterNomePorID(idSelecionado); // Método para chamar a stored procedure
+
+                // Preencher a TextBox com o nome
+                lbl_tipoConta.Text = tipoConta;
+
+                if (lbl_tipoConta.Text == "Cliente")
+                {
+                    lbl_altera_conta.Text = "Revendedor";
+                }
+                else
+                {
+                    lbl_altera_conta.Text = "Cliente";
+                }
             }
         }
 

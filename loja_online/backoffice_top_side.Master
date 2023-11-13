@@ -59,8 +59,8 @@
                     <a href="desativar_produto.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-toggle-off" style="color: #ff0000;"></i> Desativar Produto</a>
                      
                 <br />
-                <h4><b>ENCOMENDAS</b></h4>
-                    <a href="#" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-regular fa-calendar-plus" style="color: #ff0000;"></i> Visualizar Encomendas</a>
+                <h4><b>VENDAS</b></h4>
+                    <a href="visualizar_vendas.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-regular fa-calendar-plus" style="color: #ff0000;"></i> Visualizar Vendas</a>
                 <br />
                 <h4><b>OUTRAS</b></h4>
                     <a href="criar_conta_admin.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><i class="fa-solid fa-plus" style="color: #ff0000;"></i> Criar Conta Admin</a>

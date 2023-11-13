@@ -72,5 +72,5 @@
             </ContentTemplate>
    </asp:UpdatePanel>
     </div>
-
+    <asp:Label ID="lbl_info" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>
 </asp:Content>

@@ -26,7 +26,7 @@ namespace loja_online
             
             if (Session["username"] == null)
             {
-                // A sessão é nula, redireciona para index.aspx
+                // A sessão é nula, redireciona para loja_online.aspx
                 Response.Redirect("loja_online.aspx");
             }
            
@@ -73,6 +73,15 @@ namespace loja_online
 
                 cmdVendasSemana.Parameters.AddWithValue("@DataInicio", dataSemanaPassada);
                 cmdVendasSemana.Parameters.AddWithValue("@DataFim", dataAtual);
+
+                DateTime data30DiasAtras = dataAtual.AddDays(-30); // Obtém a data de 30 dias atrás
+                SqlCommand cmdVendas30Dias = new SqlCommand(
+                    "SELECT COUNT(DISTINCT CONCAT(username, CONVERT(date, data_venda))) AS total_vendas_distintas3 " +
+                    "FROM vendas " +
+                    "WHERE CONVERT(date, data_venda) BETWEEN @DataInicio1 AND @DataFim1", myconn);
+
+                cmdVendas30Dias.Parameters.AddWithValue("@DataInicio1", data30DiasAtras);
+                cmdVendas30Dias.Parameters.AddWithValue("@DataFim1", dataAtual);
 
                 myconn.Open();
 
@@ -176,6 +185,17 @@ namespace loja_online
                 }
 
                 readerVendasSemana.Close();
+
+                SqlDataReader readerVendas30Dias = cmdVendas30Dias.ExecuteReader();
+
+                if (readerVendas30Dias.Read())
+                {
+                    int totalVendas30Dias = Convert.ToInt32(readerVendas30Dias["total_vendas_distintas3"]);
+                    Chart4.Series["Series1"].Points.AddXY("Vendas do mês", totalVendas30Dias);
+
+                }
+
+                readerVendas30Dias.Close();
 
 
                 Chart1.Series["Series1"].ChartType = SeriesChartType.Column;

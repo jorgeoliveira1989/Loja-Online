@@ -12,7 +12,7 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container d-flex justify-content-center align-items-center" style="height: 30vh;">
+     <div class="container d-flex justify-content-center align-items-center">
         <div class="p-4 border rounded bg-light">
             <br />
                 <h1>Dados dos Admins</h1>
