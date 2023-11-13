@@ -24,7 +24,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container d-flex justify-content-center align-items-center">
         <div class="p-4 border rounded bg-light">
            <br />
             <h5>Estado do Produto</h5>

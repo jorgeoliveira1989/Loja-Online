@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Media.Animation;
 
 namespace loja_online
 {
@@ -20,6 +21,11 @@ namespace loja_online
             Session.Clear();
             Session.Abandon();
             Response.Redirect("loja_online.aspx");
+        }
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            // Atualizar o conteúdo do relógio a cada tick do Timer
+            clock.InnerText = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

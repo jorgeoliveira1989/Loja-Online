@@ -24,15 +24,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
-          <div class="bg-secondary p-2">
+        <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
+        <asp:UpdatePanel runat="server" ID="UpdatePanelTop" UpdateMode="Conditional">
+          <ContentTemplate>
+            <div class="bg-secondary p-2">
             <div class="container d-flex justify-content-between align-items-center">
                  <a href="backoffice.aspx" class="text-white text-decoration-none d-block mb-2 m-2"><h1 class="text-white font-weight-bold">BACKOFFICE</h1></a>
-                 <div id="clock" class="text-white font-weight-bold"></div>
+                 <asp:Timer runat="server" ID="Timer1" Interval="1000" OnTick="Timer1_Tick" />
+                <div id="clock"  runat="server" class="text-white font-weight-bold"></div>
                  <i class="fa-solid fa-circle-user" style="color: #ff0000;"> <asp:Label ID="lbl_user" runat="server" Text="Label"></asp:Label></i>
                  <asp:Button ID="btn_sair" runat="server" class="btn btn-danger" Text="SAIR" OnClick="btn_sair_Click"/>
             </div>
           </div>
-        
+         </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+            </Triggers>
+    </asp:UpdatePanel>
         <div class="d-flex">
             <div class="text-white p-3" style="width: 250px; background-color: #000000; height: 100vh;">
                     <br />

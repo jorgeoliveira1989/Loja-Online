@@ -48,6 +48,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="itext.barcodes, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext.8.0.2\lib\net461\itext.barcodes.dll</HintPath>
     </Reference>
@@ -194,6 +197,7 @@
     <Content Include="teste.aspx" />
     <Content Include="visualizar_admins.aspx" />
     <Content Include="visualizar_clientes.aspx" />
+    <Content Include="visualizar_encomendas.aspx" />
     <Content Include="visualizar_produtos.aspx" />
     <Content Include="css\all.css" />
     <Content Include="css\all.min.css" />
@@ -2433,6 +2437,13 @@
     </Compile>
     <Compile Include="visualizar_clientes.aspx.designer.cs">
       <DependentUpon>visualizar_clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizar_encomendas.aspx.cs">
+      <DependentUpon>visualizar_encomendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizar_encomendas.aspx.designer.cs">
+      <DependentUpon>visualizar_encomendas.aspx</DependentUpon>
     </Compile>
     <Compile Include="visualizar_produtos.aspx.cs">
       <DependentUpon>visualizar_produtos.aspx</DependentUpon>

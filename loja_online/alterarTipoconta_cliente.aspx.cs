@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace loja_online
 {
@@ -14,11 +15,14 @@ namespace loja_online
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["username"] == null)
             {
-                // A sessão é nula, redireciona para index.aspx
-                Response.Redirect("index.aspx");
+                // A sessão é nula, redireciona para loja_online.aspx
+                Response.Redirect("loja_online.aspx");
             }
+
+
         }
 
         protected void ddl_id_SelectedIndexChanged(object sender, EventArgs e)

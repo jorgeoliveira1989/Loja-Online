@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Security.Cryptography;
 using System.Collections;
 using static loja_online.conta;
+using System.Globalization;
 
 namespace loja_online
 {
@@ -213,13 +214,42 @@ namespace loja_online
 
         protected void ddl_data_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Atualizar o comando SQL com base na data escolhida
-            SqlDataSource1.SelectCommand = "SELECT * FROM vendas WHERE data_venda = @data_venda";
-            SqlDataSource1.SelectParameters["data_venda"].DefaultValue = ddl_data.SelectedValue;
+            string valor = ddl_data.SelectedValue;
 
-            // Recarregar os dados no Repeater
+            // Extrair o dia da data selecionada
+            DateTime dataSelecionada = DateTime.Parse(valor);
+            string diaSelecionado = dataSelecionada.Day.ToString();
+
+            // Construir a consulta SQL para buscar pelo dia
+            string query = $"SELECT id_venda, username, produto, quantidade, data_venda FROM vendas WHERE DAY(data_venda) = {diaSelecionado}";
+
+            SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
+
+            SqlCommand mycomm = new SqlCommand(query, myconn);
+
+            List<Vendas> lst_vendas = new List<Vendas>();
+
+            myconn.Open();
+
+            var reader = mycomm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Vendas venda = new Vendas();
+
+                venda.id_vendas = reader.GetInt32(0);
+                venda.username = reader.GetString(1);
+                venda.produto = reader.GetString(2);
+                venda.quantidade = reader.GetInt32(3);
+                venda.data_venda = reader.GetDateTime(4);
+
+                lst_vendas.Add(venda);
+            }
+
+            myconn.Close();
+
+            rpt_vendas.DataSource = lst_vendas;
             rpt_vendas.DataBind();
-
         }
     }
 }

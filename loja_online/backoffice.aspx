@@ -99,14 +99,36 @@
 
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Encomendas</div>
+                    <div class="card-header bg-warning text-white font-weight-bold d-flex justify-content-between">
+                        <span>
+                            <a href="visualizar_encomendas.aspx" class="text-white text-decoration-none d-block mb-2 m-2">
+                                <asp:Label ID="lbltotal_encomendas" runat="server" Text="Total de Vendas" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
+                            </a> 
+                        </span>
+                        <span>
+                            <asp:Label ID="lbl_encomendasspan" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
+                        </span>   
+                    </div>
                     <div class="card-body">
-                        <canvas id="encomendasChart"></canvas>
+                        <div class="mx-auto" style="max-width: 750px;">
+                            <asp:Chart ID="Chart4" runat="server" CssClass="img-fluid" Height="450" Width="500">
+                                <Series>
+                                    <asp:Series Name="Series1">
+                                    </asp:Series>
+                                </Series>
+                                <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1">
+                                    </asp:ChartArea>
+                                </ChartAreas>
+                            </asp:Chart>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<br />
+    <br />
 </div>
 
 </asp:Content>
