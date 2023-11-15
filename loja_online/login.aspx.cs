@@ -31,138 +31,161 @@ namespace loja_online
 
         protected void btn_entrar_Click(object sender, EventArgs e)
         {
-            Session["username"] = txt_user.Text;
-            Session["cargo"] = ddl_tipo.Text;
+
+            
+           // Session["username"] = txt_user.Text;
+           // Session["cargo"] = ddl_tipo.Text;
             
 
             cargo = ddl_tipo.SelectedItem.ToString();
 
-            if (cargo == "-------------")
+            if(txt_passe.Text != null && txt_user.Text != null)
             {
-                ddl_tipo.Focus();
-                lbl_info.Text = "Indique um cargo!!! (Administrador, Cliente ou Revendedor)";
 
+            
+
+                if (cargo == "-------------")
+                {
+                    ddl_tipo.Focus();
+                    lbl_info.Text = "Indique um cargo!!! (Administrador, Cliente ou Revendedor)";
+                
+
+                }
+                else if (cargo == "Administrador") 
+                {
+                    SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
+
+                    SqlCommand mycomm = new SqlCommand();
+                    mycomm.CommandType = CommandType.StoredProcedure;
+                    mycomm.CommandText = "autenticacao_ativacao_admin";
+
+                    mycomm.Connection = myconn;
+                    mycomm.Parameters.AddWithValue("@user", txt_user.Text);
+                    mycomm.Parameters.AddWithValue("@passe", EncryptString(txt_passe.Text));
+                    mycomm.Parameters.AddWithValue("@cargo", ddl_tipo.Text);
+
+                    SqlParameter valor = new SqlParameter();
+                    valor.ParameterName = "@retorno";
+                    valor.Direction = ParameterDirection.Output;
+                    valor.SqlDbType = SqlDbType.Int;
+
+                    mycomm.Parameters.Add(valor);
+
+                    myconn.Open();
+                    mycomm.ExecuteNonQuery();
+
+                    int resposta = Convert.ToInt32(mycomm.Parameters["@retorno"].Value);
+
+                    myconn.Close();
+
+                    if (resposta == 1)
+                    {
+                        Session["username"] = txt_user.Text;
+                        Session["cargo"] = ddl_tipo.Text;
+                        Response.Redirect("backoffice.aspx");
+                        
+                    }
+                    else if (resposta == 0)
+                    {
+                        lbl_info.Text = "Username e/ou Password não existem!!!";
+                    }
+                    else if (resposta == 2)
+                    {
+                        lbl_info.Text = "Conta está inativa!!!";
+                    }
+                }
+                else if (cargo == "Cliente")
+                {
+                    SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
+
+                    SqlCommand mycomm = new SqlCommand();
+                    mycomm.CommandType = CommandType.StoredProcedure;
+                    mycomm.CommandText = "autenticacao_ativacao";
+
+                    mycomm.Connection = myconn;
+                    mycomm.Parameters.AddWithValue("@user", txt_user.Text);
+                    mycomm.Parameters.AddWithValue("@passe", EncryptString(txt_passe.Text));
+                    mycomm.Parameters.AddWithValue("@cargo", ddl_tipo.Text);
+
+                    SqlParameter valor = new SqlParameter();
+                    valor.ParameterName = "@retorno";
+                    valor.Direction = ParameterDirection.Output;
+                    valor.SqlDbType = SqlDbType.Int;
+
+                    mycomm.Parameters.Add(valor);
+
+                    myconn.Open();
+                    mycomm.ExecuteNonQuery();
+
+                    int resposta = Convert.ToInt32(mycomm.Parameters["@retorno"].Value);
+
+                    myconn.Close();
+
+                    if (resposta == 1)
+                    {
+                        Session["username"] = txt_user.Text;
+                        Session["cargo"] = ddl_tipo.Text;
+                        Response.Redirect("conta.aspx");
+                        
+                    }
+                    else if (resposta == 0)
+                    {
+                        lbl_info.Text = "Username e/ou Password não existem!!!";
+                    }
+                    else if (resposta == 2)
+                    {
+                        lbl_info.Text = "Conta está inativa!!!";
+                    }
+                }
+                else if (cargo == "Revendedor")
+                {
+                    SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
+
+                    SqlCommand mycomm = new SqlCommand();
+                    mycomm.CommandType = CommandType.StoredProcedure;
+                    mycomm.CommandText = "autenticacao_ativacao";
+
+                    mycomm.Connection = myconn;
+                    mycomm.Parameters.AddWithValue("@user", txt_user.Text);
+                    mycomm.Parameters.AddWithValue("@passe", EncryptString(txt_passe.Text));
+                    mycomm.Parameters.AddWithValue("@cargo", ddl_tipo.Text);
+
+                    SqlParameter valor = new SqlParameter();
+                    valor.ParameterName = "@retorno";
+                    valor.Direction = ParameterDirection.Output;
+                    valor.SqlDbType = SqlDbType.Int;
+
+                    mycomm.Parameters.Add(valor);
+
+                    myconn.Open();
+                    mycomm.ExecuteNonQuery();
+
+                    int resposta = Convert.ToInt32(mycomm.Parameters["@retorno"].Value);
+
+                    myconn.Close();
+
+                    if (resposta == 1)
+                    {
+                        Session["username"] = txt_user.Text;
+                        Session["cargo"] = ddl_tipo.Text;
+                        Response.Redirect("conta.aspx");
+                        
+                    }
+                    else if (resposta == 0)
+                    {
+                        lbl_info.Text = "Username e/ou Password não existem!!!";
+                    }
+                    else if (resposta == 2)
+                    {
+                        lbl_info.Text = "Conta está inativa!!!";
+                    }
+                }
             }
-            else if (cargo == "Administrador") 
+            else
             {
-                SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
-
-                SqlCommand mycomm = new SqlCommand();
-                mycomm.CommandType = CommandType.StoredProcedure;
-                mycomm.CommandText = "autenticacao_ativacao_admin";
-
-                mycomm.Connection = myconn;
-                mycomm.Parameters.AddWithValue("@user", txt_user.Text);
-                mycomm.Parameters.AddWithValue("@passe", EncryptString(txt_passe.Text));
-                mycomm.Parameters.AddWithValue("@cargo", ddl_tipo.Text);
-
-                SqlParameter valor = new SqlParameter();
-                valor.ParameterName = "@retorno";
-                valor.Direction = ParameterDirection.Output;
-                valor.SqlDbType = SqlDbType.Int;
-
-                mycomm.Parameters.Add(valor);
-
-                myconn.Open();
-                mycomm.ExecuteNonQuery();
-
-                int resposta = Convert.ToInt32(mycomm.Parameters["@retorno"].Value);
-
-                myconn.Close();
-
-                if (resposta == 1)
-                {
-                    Response.Redirect("backoffice.aspx");
-                }
-                else if (resposta == 0)
-                {
-                    lbl_info.Text = "Username e/ou Password não existem!!!";
-                }
-                else if (resposta == 2)
-                {
-                    lbl_info.Text = "Conta está inativa!!!";
-                }
+                Response.Redirect("login.aspx");
             }
-            else if (cargo == "Cliente")
-            {
-                SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
 
-                SqlCommand mycomm = new SqlCommand();
-                mycomm.CommandType = CommandType.StoredProcedure;
-                mycomm.CommandText = "autenticacao_ativacao";
-
-                mycomm.Connection = myconn;
-                mycomm.Parameters.AddWithValue("@user", txt_user.Text);
-                mycomm.Parameters.AddWithValue("@passe", EncryptString(txt_passe.Text));
-                mycomm.Parameters.AddWithValue("@cargo", ddl_tipo.Text);
-
-                SqlParameter valor = new SqlParameter();
-                valor.ParameterName = "@retorno";
-                valor.Direction = ParameterDirection.Output;
-                valor.SqlDbType = SqlDbType.Int;
-
-                mycomm.Parameters.Add(valor);
-
-                myconn.Open();
-                mycomm.ExecuteNonQuery();
-
-                int resposta = Convert.ToInt32(mycomm.Parameters["@retorno"].Value);
-
-                myconn.Close();
-
-                if (resposta == 1)
-                {
-                    Response.Redirect("conta.aspx");
-                }
-                else if (resposta == 0)
-                {
-                    lbl_info.Text = "Username e/ou Password não existem!!!";
-                }
-                else if (resposta == 2)
-                {
-                    lbl_info.Text = "Conta está inativa!!!";
-                }
-            }
-            else if (cargo == "Revendedor")
-            {
-                SqlConnection myconn = new SqlConnection(ConfigurationManager.ConnectionStrings["lojaOnline_aulaTesteConnectionString"].ConnectionString);
-
-                SqlCommand mycomm = new SqlCommand();
-                mycomm.CommandType = CommandType.StoredProcedure;
-                mycomm.CommandText = "autenticacao_ativacao";
-
-                mycomm.Connection = myconn;
-                mycomm.Parameters.AddWithValue("@user", txt_user.Text);
-                mycomm.Parameters.AddWithValue("@passe", EncryptString(txt_passe.Text));
-                mycomm.Parameters.AddWithValue("@cargo", ddl_tipo.Text);
-
-                SqlParameter valor = new SqlParameter();
-                valor.ParameterName = "@retorno";
-                valor.Direction = ParameterDirection.Output;
-                valor.SqlDbType = SqlDbType.Int;
-
-                mycomm.Parameters.Add(valor);
-
-                myconn.Open();
-                mycomm.ExecuteNonQuery();
-
-                int resposta = Convert.ToInt32(mycomm.Parameters["@retorno"].Value);
-
-                myconn.Close();
-
-                if (resposta == 1)
-                {
-                    Response.Redirect("conta.aspx");
-                }
-                else if (resposta == 0)
-                {
-                    lbl_info.Text = "Username e/ou Password não existem!!!";
-                }
-                else if (resposta == 2)
-                {
-                    lbl_info.Text = "Conta está inativa!!!";
-                }
-            }
         }
 
         public static string EncryptString(string Message)
@@ -226,5 +249,6 @@ namespace loja_online
             enc = enc.Replace("\\", "IOIOIO");
             return enc;
         }
+
     }
 }

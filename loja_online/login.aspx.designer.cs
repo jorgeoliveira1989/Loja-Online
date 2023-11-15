@@ -51,15 +51,6 @@ namespace loja_online
         protected global::System.Web.UI.WebControls.Button btn_entrar;
 
         /// <summary>
-        /// lbtn_recuperarPasse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtn_recuperarPasse;
-
-        /// <summary>
         /// lbl_info control.
         /// </summary>
         /// <remarks>

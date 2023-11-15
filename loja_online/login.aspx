@@ -18,8 +18,8 @@
                             <asp:TextBox ID="txt_user" class="form-control" placeholder="Indique o seu Username" runat="server"></asp:TextBox>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <asp:TextBox ID="txt_passe" class="form-control" placeholder="Indique a sua Password" runat="server" TextMode="Password" TabIndex="1" ></asp:TextBox>
+                            <label for="password" class="form-label">Password </label>
+                            &nbsp;<asp:TextBox ID="txt_passe" class="form-control" placeholder="Indique a sua Password" runat="server" TextMode="Password" TabIndex="1" ></asp:TextBox>
                         </div>
                          <div class="mb-3">
                              <label class="form-label">Cargo</label>
@@ -34,7 +34,7 @@
                             <asp:Button ID="btn_entrar" runat="server" Text="Login" class="btn btn-danger btn-lg w-100" OnClick="btn_entrar_Click" />
                         <br />
                         <br />
-                            <asp:LinkButton ID="lbtn_recuperarPasse" runat="server" PostBackUrl="~/recuperarpasse.aspx">Recuperar Password?</asp:LinkButton>
+                            <a href="recuperarpasse.aspx">Recuperar Password?</a>
                         <br />
                         <br />
                             <a href="criar_conta.aspx" class="btn btn-primary btn-lg w-100">Criar Conta</a>

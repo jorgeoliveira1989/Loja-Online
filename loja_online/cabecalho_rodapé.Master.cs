@@ -13,7 +13,7 @@ namespace loja_online
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["cargo"] != null)
+            if (Session["cargo"] != null && Session["username"] !=null )
             {
                 string username = (string)Session["username"];
                 lb_minhaConta.Visible = false;

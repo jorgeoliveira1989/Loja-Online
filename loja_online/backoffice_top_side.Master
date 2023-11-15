@@ -73,11 +73,7 @@
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
-        
-                <small class="text-muted text-center py-3">Backoffice v1.0.0</small>
+                <small class="text-muted text-center py-3">Admin v1.0.0</small>
            </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

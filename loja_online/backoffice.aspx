@@ -23,7 +23,7 @@
                     </div>
                     <div class="card-body">
                         <div class="mx-auto" style="max-width: 750px;">
-                            <asp:Chart ID="Chart1" runat="server" CssClass="img-fluid" Height="450" Width="500">
+                            <asp:Chart ID="Chart1" runat="server" CssClass="img-fluid" Height="450" Width="500" Palette="SeaGreen">
                                 <Series>
                                     <asp:Series Name="Series1">
                                     </asp:Series>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="card-body">
                         <div class="mx-auto" style="max-width: 750px;">
-                            <asp:Chart ID="Chart3" runat="server" CssClass="img-fluid" Height="450" Width="500">
+                            <asp:Chart ID="Chart3" runat="server" CssClass="img-fluid" Height="450" Width="500" Palette="None" PaletteCustomColors="Red">
                                 <Series>
                                     <asp:Series Name="Series1">
                                     </asp:Series>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="card-body">
                         <div class="mx-auto" style="max-width: 750px;">
-                            <asp:Chart ID="Chart4" runat="server" CssClass="img-fluid" Height="450" Width="500">
+                            <asp:Chart ID="Chart4" runat="server" CssClass="img-fluid" Height="450" Width="500" Palette="None" PaletteCustomColors="255, 128, 0">
                                 <Series>
                                     <asp:Series Name="Series1">
                                     </asp:Series>

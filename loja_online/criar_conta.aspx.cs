@@ -90,7 +90,10 @@ namespace loja_online
                     servidor.EnableSsl = true;
 
                     servidor.Send(email);
-                }else if(cargo == "Revendedor")
+
+                    limparEcra();
+                }
+                else if(cargo == "Revendedor")
                 {
                     email.Body = "<b>Obrigado pelo Registo na nossa aplicação.<br/> Para ativar a sua conta carregue <a href='https://localhost:44383/ativacao_revendedor.aspx?username=" + EncryptString(txt_username.Text) + "'>aqui";
 
@@ -105,6 +108,8 @@ namespace loja_online
                     servidor.EnableSsl = true;
 
                     servidor.Send(email);
+
+                    limparEcra();
                 }
 
 
@@ -114,6 +119,16 @@ namespace loja_online
                 lbl_info.Text = "Utilizador já existe!!!";
             }
 
+        }
+
+        private void limparEcra()
+        {
+            txt_nome.Text = "";
+            txt_email.Text = "";
+            txt_nif.Text = "";
+            txt_password.Text = "";
+            txt_username.Text = "";
+            
         }
 
         public static string EncryptString(string Message)
